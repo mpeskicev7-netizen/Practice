@@ -31,6 +31,12 @@ CowString::~CowString() {
     }
 }
 
+CowString::CowString(const CowString& other) {
+    block_ = other.block_;
+
+    block_->ref_count++;
+}
+
 size_t CowString::size() const {
     if (block_) {
         return block_->size;
@@ -43,4 +49,11 @@ const char* CowString::c_str() const {
         return block_->data;
     }
     return "";  
+}
+
+char CowString::operator[](size_t index) const {
+    if (block_ == nullptr) {
+        return '\0';
+    }
+    return block_->data[index];
 }

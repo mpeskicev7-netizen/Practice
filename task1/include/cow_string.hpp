@@ -6,7 +6,7 @@
 class CowString {
     private:
     struct ControlBlock {
-        size_t ref_count;
+        mutable size_t ref_count;
         size_t size;
         char data[];
     };
@@ -14,6 +14,9 @@ class CowString {
     public:
     CowString(const char* str);
     ~CowString();
+    CowString(const CowString& other);
     size_t size() const;
     const char* c_str() const;
+    char operator[](size_t index) const;
+    char& operator[](size_t index);
 };
