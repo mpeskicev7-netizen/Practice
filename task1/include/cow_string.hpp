@@ -11,6 +11,7 @@ class CowString {
         char data[];
     };
     ControlBlock* block_;
+    void detach();
     public:
     CowString(const char* str);
     ~CowString();
