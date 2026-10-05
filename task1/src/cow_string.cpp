@@ -84,3 +84,94 @@ void CowString::detach() {
 
     block_ = copy_block;
 }
+
+CowString::CowString(CowString&& other) noexcept {
+    block_ = other.block_;
+    other.block_ = nullptr;
+}
+
+CowString& CowString::operator=(CowString&& other) noexcept {
+    if (this == &other) {
+        return *this;
+    }
+
+    if (block_ != nullptr) {
+        block_->ref_count--;
+        if (block_->ref_count == 0) {
+            free(block_);
+        }
+    }
+
+    block_ = other.block_;
+    other.block_ = nullptr;
+
+    return *this;
+}
+
+bool CowString::operator==(const CowString& other) const {
+    if (block_ == other.block_) {
+        return true;
+    }
+
+    if (this->size() != other.size()) {
+        return false;
+    }
+
+    return memcmp(this->c_str(), other.c_str(), this->size()) == 0;
+}
+
+bool CowString::operator!=(const CowString& other) const {
+    return !(this->operator==(other));
+}
+
+CowString& CowString::operator=(const CowString& other) {
+    if (this == &other) {
+        return *this;
+    }
+
+    if (block_ != nullptr) {
+        block_->ref_count--;
+
+        if (block_->ref_count == 0) {
+            free(block_);
+        }
+    }
+
+    block_ = other.block_;
+    block_->ref_count++;
+
+    return *this;
+}
+
+CowString& CowString::operator+=(const CowString& other) {
+    if (block_->ref_count > 1) {
+        detach();
+    }
+
+    size_t len = other.size();
+    size_t new_size = sizeof(ControlBlock) + block_->size + len + 1;
+    ControlBlock* new_block = static_cast<ControlBlock*>(malloc(new_size));
+
+    new_block->ref_count = 1;
+    new_block->size = block_->size + len;
+
+    memcpy(new_block->data, block_->data, block_->size);
+    memcpy(new_block->data + block_->size, other.block_->data, len + 1);
+
+    free(block_);
+
+    block_ = new_block;
+
+    return *this;
+}
+
+CowString CowString::operator+(const CowString& other) const {
+    CowString result(*this);
+    result += other;
+    return result;
+}
+
+std::ostream& operator<<(std::ostream& os, const CowString& str) {
+    os << str.c_str();
+    return os;
+}

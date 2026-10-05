@@ -73,29 +73,29 @@ CMakeFiles/cow_string_demo.dir/main.cpp.o: CMakeFiles/cow_string_demo.dir/flags.
 CMakeFiles/cow_string_demo.dir/main.cpp.o: /home/vibe/task1/main.cpp
 CMakeFiles/cow_string_demo.dir/main.cpp.o: CMakeFiles/cow_string_demo.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vibe/task1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cow_string_demo.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cow_string_demo.dir/main.cpp.o -MF CMakeFiles/cow_string_demo.dir/main.cpp.o.d -o CMakeFiles/cow_string_demo.dir/main.cpp.o -c /home/vibe/task1/main.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cow_string_demo.dir/main.cpp.o -MF CMakeFiles/cow_string_demo.dir/main.cpp.o.d -o CMakeFiles/cow_string_demo.dir/main.cpp.o -c /home/vibe/task1/main.cpp
 
 CMakeFiles/cow_string_demo.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/cow_string_demo.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vibe/task1/main.cpp > CMakeFiles/cow_string_demo.dir/main.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vibe/task1/main.cpp > CMakeFiles/cow_string_demo.dir/main.cpp.i
 
 CMakeFiles/cow_string_demo.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/cow_string_demo.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vibe/task1/main.cpp -o CMakeFiles/cow_string_demo.dir/main.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vibe/task1/main.cpp -o CMakeFiles/cow_string_demo.dir/main.cpp.s
 
 CMakeFiles/cow_string_demo.dir/src/cow_string.cpp.o: CMakeFiles/cow_string_demo.dir/flags.make
 CMakeFiles/cow_string_demo.dir/src/cow_string.cpp.o: /home/vibe/task1/src/cow_string.cpp
 CMakeFiles/cow_string_demo.dir/src/cow_string.cpp.o: CMakeFiles/cow_string_demo.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vibe/task1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/cow_string_demo.dir/src/cow_string.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cow_string_demo.dir/src/cow_string.cpp.o -MF CMakeFiles/cow_string_demo.dir/src/cow_string.cpp.o.d -o CMakeFiles/cow_string_demo.dir/src/cow_string.cpp.o -c /home/vibe/task1/src/cow_string.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cow_string_demo.dir/src/cow_string.cpp.o -MF CMakeFiles/cow_string_demo.dir/src/cow_string.cpp.o.d -o CMakeFiles/cow_string_demo.dir/src/cow_string.cpp.o -c /home/vibe/task1/src/cow_string.cpp
 
 CMakeFiles/cow_string_demo.dir/src/cow_string.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/cow_string_demo.dir/src/cow_string.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vibe/task1/src/cow_string.cpp > CMakeFiles/cow_string_demo.dir/src/cow_string.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vibe/task1/src/cow_string.cpp > CMakeFiles/cow_string_demo.dir/src/cow_string.cpp.i
 
 CMakeFiles/cow_string_demo.dir/src/cow_string.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/cow_string_demo.dir/src/cow_string.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vibe/task1/src/cow_string.cpp -o CMakeFiles/cow_string_demo.dir/src/cow_string.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vibe/task1/src/cow_string.cpp -o CMakeFiles/cow_string_demo.dir/src/cow_string.cpp.s
 
 # Object files for target cow_string_demo
 cow_string_demo_OBJECTS = \

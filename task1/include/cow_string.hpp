@@ -20,4 +20,12 @@ class CowString {
     const char* c_str() const;
     char operator[](size_t index) const;
     char& operator[](size_t index);
+    bool operator==(const CowString& other) const;
+    bool operator!=(const CowString& other) const;
+    CowString(CowString&& other) noexcept;
+    CowString& operator=(CowString&& other) noexcept;
+    CowString& operator=(const CowString& other); 
+    CowString& operator+=(const CowString& other);
+    CowString operator+(const CowString& other) const;
+    friend std::ostream& operator<<(std::ostream& os, const CowString& str);
 };

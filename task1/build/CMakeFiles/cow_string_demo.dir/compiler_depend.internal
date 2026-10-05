@@ -7,6 +7,7 @@ CMakeFiles/cow_string_demo.dir/main.cpp.o
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
  /usr/include/asm-generic/errno.h
+ /usr/include/assert.h
  /usr/include/c++/13/backward/binders.h
  /usr/include/c++/13/bit
  /usr/include/c++/13/bits/alloc_traits.h
@@ -63,12 +64,14 @@ CMakeFiles/cow_string_demo.dir/main.cpp.o
  /usr/include/c++/13/bits/uses_allocator.h
  /usr/include/c++/13/bits/uses_allocator_args.h
  /usr/include/c++/13/bits/utility.h
+ /usr/include/c++/13/cassert
  /usr/include/c++/13/cctype
  /usr/include/c++/13/cerrno
  /usr/include/c++/13/clocale
  /usr/include/c++/13/cstddef
  /usr/include/c++/13/cstdio
  /usr/include/c++/13/cstdlib
+ /usr/include/c++/13/cstring
  /usr/include/c++/13/cwchar
  /usr/include/c++/13/cwctype
  /usr/include/c++/13/debug/assertions.h
@@ -107,6 +110,8 @@ CMakeFiles/cow_string_demo.dir/main.cpp.o
  /usr/include/stdc-predef.h
  /usr/include/stdio.h
  /usr/include/stdlib.h
+ /usr/include/string.h
+ /usr/include/strings.h
  /usr/include/time.h
  /usr/include/wchar.h
  /usr/include/wctype.h

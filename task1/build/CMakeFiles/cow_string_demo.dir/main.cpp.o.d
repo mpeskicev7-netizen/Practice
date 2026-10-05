@@ -1,6 +1,5 @@
 CMakeFiles/cow_string_demo.dir/main.cpp.o: /home/vibe/task1/main.cpp \
- /usr/include/stdc-predef.h /home/vibe/task1/include/cow_string.hpp \
- /usr/include/c++/13/cstddef \
+ /usr/include/stdc-predef.h /usr/include/c++/13/cassert \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -11,13 +10,18 @@ CMakeFiles/cow_string_demo.dir/main.cpp.o: /home/vibe/task1/main.cpp \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
- /usr/include/c++/13/pstl/pstl_config.h \
+ /usr/include/c++/13/pstl/pstl_config.h /usr/include/assert.h \
+ /usr/include/c++/13/cstring /usr/include/string.h \
+ /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
- /usr/include/c++/13/iosfwd /usr/include/c++/13/bits/requires_hosted.h \
+ /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+ /usr/include/strings.h /usr/include/c++/13/iostream \
+ /usr/include/c++/13/bits/requires_hosted.h /usr/include/c++/13/ostream \
+ /usr/include/c++/13/ios /usr/include/c++/13/iosfwd \
  /usr/include/c++/13/bits/stringfwd.h \
  /usr/include/c++/13/bits/memoryfwd.h /usr/include/c++/13/bits/postypes.h \
  /usr/include/c++/13/cwchar /usr/include/wchar.h \
- /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
@@ -27,11 +31,7 @@ CMakeFiles/cow_string_demo.dir/main.cpp.o: /home/vibe/task1/main.cpp \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
- /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
- /usr/include/c++/13/iostream /usr/include/c++/13/ostream \
- /usr/include/c++/13/ios /usr/include/c++/13/exception \
- /usr/include/c++/13/bits/exception.h \
+ /usr/include/c++/13/exception /usr/include/c++/13/bits/exception.h \
  /usr/include/c++/13/bits/exception_ptr.h \
  /usr/include/c++/13/bits/exception_defines.h \
  /usr/include/c++/13/bits/cxxabi_init_exception.h \
@@ -133,7 +133,7 @@ CMakeFiles/cow_string_demo.dir/main.cpp.o: /home/vibe/task1/main.cpp \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/13/bits/charconv.h \
  /usr/include/c++/13/bits/basic_string.tcc \
- /usr/include/c++/13/bits/memory_resource.h \
+ /usr/include/c++/13/bits/memory_resource.h /usr/include/c++/13/cstddef \
  /usr/include/c++/13/bits/uses_allocator.h \
  /usr/include/c++/13/bits/uses_allocator_args.h /usr/include/c++/13/tuple \
  /usr/include/c++/13/bits/locale_classes.tcc \
@@ -150,4 +150,5 @@ CMakeFiles/cow_string_demo.dir/main.cpp.o: /home/vibe/task1/main.cpp \
  /usr/include/c++/13/bits/locale_facets.tcc \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
- /usr/include/c++/13/bits/istream.tcc
+ /usr/include/c++/13/bits/istream.tcc \
+ /home/vibe/task1/include/cow_string.hpp
