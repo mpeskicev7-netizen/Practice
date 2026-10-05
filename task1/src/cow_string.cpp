@@ -2,6 +2,7 @@
 #include <cstring>
 #include <cstdlib>
 #include <stdexcept>
+#include <iostream>
 
 using namespace std;
 
@@ -99,6 +100,7 @@ CowString& CowString::operator=(CowString&& other) noexcept {
         block_->ref_count--;
         if (block_->ref_count == 0) {
             free(block_);
+            block_ = nullptr;  // ← ДОБАВЬ!
         }
     }
 
@@ -144,6 +146,16 @@ CowString& CowString::operator=(const CowString& other) {
 }
 
 CowString& CowString::operator+=(const CowString& other) {
+    if (this == &other) {
+        CowString temp(other);
+        return *this += temp;
+    }
+
+    if (block_ == nullptr) {
+        *this = other;
+        return *this;
+    }
+
     if (block_->ref_count > 1) {
         detach();
     }
@@ -159,7 +171,6 @@ CowString& CowString::operator+=(const CowString& other) {
     memcpy(new_block->data + block_->size, other.block_->data, len + 1);
 
     free(block_);
-
     block_ = new_block;
 
     return *this;
