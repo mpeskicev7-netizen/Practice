@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/vibe/task2/build",
+  "command": "/usr/bin/g++  -I/home/vibe/task2/include -g -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles/small_vector_demo.dir/src/main.cpp.o -c /home/vibe/task2/src/main.cpp",
+  "file": "/home/vibe/task2/src/main.cpp",
+  "output": "CMakeFiles/small_vector_demo.dir/src/main.cpp.o"
+}
+]

@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/small_vector_demo.dir/src/main.cpp.o -o small_vector_demo 

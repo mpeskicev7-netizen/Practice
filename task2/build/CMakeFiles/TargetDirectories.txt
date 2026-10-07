@@ -1,0 +1,3 @@
+/home/vibe/task2/build/CMakeFiles/small_vector_demo.dir
+/home/vibe/task2/build/CMakeFiles/edit_cache.dir
+/home/vibe/task2/build/CMakeFiles/rebuild_cache.dir
