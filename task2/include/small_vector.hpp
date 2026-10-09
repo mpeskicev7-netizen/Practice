@@ -49,6 +49,15 @@ class SmallVector {
     }
 
     ~SmallVector() {
+        for (size_t i = 0; i < size_; i++) {
+            if (is_heap_) {
+                heap_ptr[i].~T();
+            }
+            else {
+                inline_data[i].~T();
+            }
+        }
+
         if (is_heap_) {
             delete[] heap_ptr;
         }
@@ -98,6 +107,28 @@ class SmallVector {
         }
         else {
             return inline_data[index];
+        }
+    }
+
+    SmallVector(SmallVector&& other) noexcept {
+        if (other.is_heap_) {
+            heap_ptr = other.heap_ptr;
+            size_ = other.size_;
+            capacity_ = other.capacity_;
+
+            other.heap_ptr = nullptr;
+            other.size_ = 0;
+            other.is_heap_ = false;
+        }
+        else {
+            for (size_t i = 0; i < other.size_; i++) {
+                inline_data[i] = other.inline_data[i]; 
+            }
+
+            size_ = other.size_;
+            capacity_ = other.capacity_;
+
+            other.size_ = 0;
         }
     }
 };
