@@ -50,17 +50,19 @@ class SmallVector {
         }
     }
     public:
-    SmallVector() : size_(0), capacity_(N), is_heap_(false) {
+    SmallVector() : size_(0), capacity_(N), is_heap_(false), heap_ptr(nullptr) {
 
     }
 
     ~SmallVector() {
         for (size_t i = 0; i < size_; i++) {
             if (is_heap_) {
-                heap_ptr[i].~T();
+                T* temp_ptr = reinterpret_cast<T*>(heap_ptr);
+                temp_ptr->~T();
             }
             else {
-                inline_data[i].~T();
+                T* temp_data = reinterpret_cast<T*>(inline_data);
+                temp->~T();
             }
         }
 
@@ -81,10 +83,12 @@ class SmallVector {
         }
 
         if (is_heap_) {
-            heap_ptr[size_] = value;
+            T* temp_ptr = reinterpret_cast<T*>(heap_ptr) + size_;
+            new (temp_ptr) T(value);
         }
         else {
-            inline_data[size_] = value;
+            T* temp_data = reinterpret_cast<T*>(inline_data) + size_;
+            new (temp_data) T(value);
         }
 
         size_++;
@@ -96,10 +100,12 @@ class SmallVector {
         }
 
         if (is_heap_) {
-            return heap_ptr[index];
+            T* temp_ptr = reinterpret_cast<T*>(heap_ptr);
+            return temp_ptr[index];
         }
         else {
-            return inline_data[index];
+            T* temp_data = reinterpret_cast<T*>(inline_data);
+            return temp_data[index];
         }
     }
 
@@ -109,10 +115,12 @@ class SmallVector {
         }
 
         if (is_heap_) {
-            return heap_ptr[index];
+            T* temp_ptr = reinterpret_cast<T*>(heap_ptr);
+            return temp_ptr[index];
         }
         else {
-            return inline_data[index];
+            T* temp_data = reinterpret_cast<T*>(inline_data);
+            return temp_data[index];
         }
     }
 
@@ -129,7 +137,10 @@ class SmallVector {
         }
         else {
             for (size_t i = 0; i < other.size_; i++) {
-                inline_data[i] = other.inline_data[i]; 
+                T* old_data = reinterpret_cast<T*>(other.inline_data) + i;
+                T* new_data = reinterpret_cast<T*>(inline_data) + i; 
+                new (new_data) T(move(*old_data));
+                old_data->~T();
             }
 
             size_ = other.size_;
