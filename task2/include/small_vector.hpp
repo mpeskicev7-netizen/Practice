@@ -10,8 +10,8 @@ template <typename T, size_t N>
 class SmallVector {
     private:
     union {
-        T inline_data[N];
-        T* heap_ptr;
+        alignas(T) char inline_data[sizeof(T) * N];
+        char* heap_ptr;
     };
     size_t size_;
     size_t capacity_;
@@ -20,26 +20,32 @@ class SmallVector {
     void grow() {
         if (!is_heap_) {
             size_t new_capacity = capacity_ * 2;
-            T* temp_ptr = new T[new_capacity];
+            char* new_heap = new char[sizeof(T) * new_capacity];
 
+            T* temp_ptr = reinterpret_cast<T*>(new_heap);
             for (size_t i = 0; i < size_; i++) {
-                temp_ptr[i] = inline_data[i];
+                T* old_ptr = reinterpret_cast<T*>(inline_data) + i;
+                new (&temp_ptr[i]) T(*old_ptr);
+                old_ptr->~T();
             }
 
-            heap_ptr = temp_ptr;
-            is_heap_ = true;
+            heap_ptr = new_heap;
             capacity_ = new_capacity;
+            is_heap_ = true;
         }
         else {
             size_t new_capacity = capacity_ * 2;
-           T* new_heap_ptr = new T[new_capacity];
+            char* new_heap = new char[sizeof(T) * new_capacity];
 
+            T* new_heap_ptr = reinterpret_cast<T*>(new_heap);
             for (size_t i = 0; i < size_; i++) {
-                new_heap_ptr[i] = heap_ptr[i];
+                T* old_heap = reinterpret_cast<T*>(heap_ptr) + i;
+                new (&new_heap_ptr[i]) T(*old_heap);
+                old_heap->~T();
             }
 
             delete[] heap_ptr;
-            heap_ptr = new_heap_ptr;
+            heap_ptr = new_heap;
             capacity_ = new_capacity;
         }
     }
@@ -115,6 +121,7 @@ class SmallVector {
             heap_ptr = other.heap_ptr;
             size_ = other.size_;
             capacity_ = other.capacity_;
+            is_heap_ = true;
 
             other.heap_ptr = nullptr;
             other.size_ = 0;
@@ -127,6 +134,7 @@ class SmallVector {
 
             size_ = other.size_;
             capacity_ = other.capacity_;
+            is_heap_ = false;
 
             other.size_ = 0;
         }
