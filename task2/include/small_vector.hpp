@@ -50,7 +50,7 @@ class SmallVector {
         }
     }
     public:
-    SmallVector() : size_(0), capacity_(N), is_heap_(false), heap_ptr(nullptr) {
+    SmallVector() : heap_ptr(nullptr), size_(0), capacity_(N), is_heap_(false) {
 
     }
 
@@ -62,7 +62,7 @@ class SmallVector {
             }
             else {
                 T* temp_data = reinterpret_cast<T*>(inline_data);
-                temp->~T();
+                temp_data->~T();
             }
         }
 

@@ -148,5 +148,5 @@ CMakeFiles/small_vector_demo.dir/src/main.cpp.o: \
  /usr/include/c++/13/bits/locale_facets.tcc \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
- /usr/include/c++/13/bits/istream.tcc \
- /home/vibe/task2/include/small_vector.hpp
+ /usr/include/c++/13/bits/istream.tcc /usr/include/c++/13/cassert \
+ /usr/include/assert.h /home/vibe/task2/include/small_vector.hpp
