@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/vibe/task1/build",
+  "command": "/usr/bin/g++  -I/home/vibe/task1/include -g -std=gnu++17 -o CMakeFiles/cow_string_demo.dir/main.cpp.o -c /home/vibe/task1/main.cpp",
+  "file": "/home/vibe/task1/main.cpp",
+  "output": "CMakeFiles/cow_string_demo.dir/main.cpp.o"
+},
+{
+  "directory": "/home/vibe/task1/build",
+  "command": "/usr/bin/g++  -I/home/vibe/task1/include -g -std=gnu++17 -o CMakeFiles/cow_string_demo.dir/src/cow_string.cpp.o -c /home/vibe/task1/src/cow_string.cpp",
+  "file": "/home/vibe/task1/src/cow_string.cpp",
+  "output": "CMakeFiles/cow_string_demo.dir/src/cow_string.cpp.o"
+}
+]

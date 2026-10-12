@@ -47,8 +47,7 @@ void test_copy_assignment() {
     
     assert(strcmp(s1.c_str(), "world") == 0);
     assert(strcmp(s2.c_str(), "world") == 0);
-    
-    // Проверка COW
+
     s2[0] = 'W';
     assert(strcmp(s1.c_str(), "world") == 0);  
     assert(strcmp(s2.c_str(), "World") == 0);
@@ -127,8 +126,7 @@ void test_plus_assign() {
     
     assert(strcmp(s1.c_str(), "hello world") == 0);
     assert(s1.size() == 11);
-    
-    // Тест с COW
+
     CowString s2("hello");
     CowString s3 = s2;
     s2 += " world";
