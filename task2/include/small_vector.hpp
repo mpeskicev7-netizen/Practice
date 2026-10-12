@@ -58,11 +58,11 @@ class SmallVector {
         for (size_t i = 0; i < size_; i++) {
             if (is_heap_) {
                 T* temp_ptr = reinterpret_cast<T*>(heap_ptr);
-                temp_ptr->~T();
+                temp_ptr[i].~T();
             }
             else {
                 T* temp_data = reinterpret_cast<T*>(inline_data);
-                temp_data->~T();
+                temp_data[i].~T();
             }
         }
 
@@ -149,5 +149,55 @@ class SmallVector {
 
             other.size_ = 0;
         }
+    }
+
+    SmallVector& operator=(SmallVector&& other) noexcept {
+        if (this == &other) {
+            return *this;
+        }
+
+        if (is_heap_) {
+            for (size_t i = 0; i < size_; i++) {
+                T* temp_ptr = reinterpret_cast<T*>(heap_ptr);
+                temp_ptr[i].~T();
+            }
+        }
+        else {
+            for (size_t i = 0; i < size_; i++) {
+                T* temp_data = reinterpret_cast<T*>(inline_data);
+                temp_data[i].~T();
+            }
+        }
+
+        if (is_heap_) {
+            delete[] heap_ptr;
+        }
+
+        if (other.is_heap_) {
+            heap_ptr = other.heap_ptr;
+            size_ = other.size_;
+            capacity_ = other.capacity_;
+            is_heap_ = true;
+
+            other.heap_ptr = nullptr;
+            other.size_ = 0;
+            other.is_heap_ = false;
+        }
+        else {
+            for (size_t i = 0; i < other.size_; i++) {
+                T* old_data = reinterpret_cast<T*>(other.inline_data) + i;
+                T* new_data = reinterpret_cast<T*>(inline_data) + i; 
+                new (new_data) T(move(*old_data));
+                old_data->~T();
+            }
+
+            size_ = other.size_;
+            capacity_ = other.capacity_;
+            is_heap_ = false;
+
+            other.size_ = 0;
+        }
+
+        return *this;
     }
 };

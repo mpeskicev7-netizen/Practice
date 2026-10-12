@@ -37,11 +37,10 @@ void test_int_heap_transition() {
     vec.push_back(4);
     assert(vec.capacity() == 4);
     
-    vec.push_back(5);  // Переход в heap
+    vec.push_back(5);  
     assert(vec.capacity() == 8);
     assert(vec.size() == 5);
-    
-    // Проверяем что данные сохранились
+
     assert(vec[0] == 1);
     assert(vec[1] == 2);
     assert(vec[2] == 3);
@@ -120,7 +119,7 @@ void test_string_heap_transition() {
     vec.push_back("two");
     vec.push_back("three");
     vec.push_back("four");
-    vec.push_back("five");  // Переход в heap
+    vec.push_back("five");  
     
     assert(vec.size() == 5);
     assert(vec[0] == "one");
@@ -179,9 +178,8 @@ void test_string_destructors() {
         vec.push_back("test2");
         vec.push_back("test3");
         vec.push_back("test4");
-        vec.push_back("test5");  // Переход в heap
+        vec.push_back("test5");  
     }
-    // Если здесь не крашнулось — деструкторы работают правильно
     std::cout << "✓ Деструкторы работают корректно\n\n";
 }
 
