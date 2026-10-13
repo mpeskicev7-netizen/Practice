@@ -200,4 +200,82 @@ class SmallVector {
 
         return *this;
     }
+
+    SmallVector(const SmallVector& other) {
+        if (other.is_heap_) {
+            char* new_heap = new char[sizeof(T) * other.capacity_];
+
+            T* temp_ptr = reinterpret_cast<T*>(new_heap);
+            for (size_t i = 0; i < other.size_; i++) {
+                T* old_ptr = reinterpret_cast<T*>(other.heap_ptr) + i;
+                new (&temp_ptr[i]) T(*old_ptr);
+            }
+
+            size_ = other.size_;
+            capacity_ = other.capacity_;
+            is_heap_ = true;
+        }
+        else {
+            for (size_t i = 0; i < other.size_; i++) {
+                T* old_data = reinterpret_cast<T*>(other.inline_data) + i;
+                T* new_data = reinterpret_cast<T*>(inline_data) + i;
+                new (new_data) T(*old_data);
+            }
+
+            size_ = other.size_;
+            capacity_ = N;
+            is_heap_ = false;
+        }
+    }
+
+    SmallVector& operator=(const SmallVector& other) {
+        if (this == &other) {
+            return *this;
+        }
+
+        if (is_heap_) {
+            for (size_t i = 0; i < size_; i++) {
+                T* temp_ptr = reinterpret_cast<T*>(heap_ptr);
+                temp_ptr[i].~T();
+            }
+        }
+        else {
+            for (size_t i = 0; i < size_; i++) {
+                T* temp_data = reinterpret_cast<T*>(inline_data);
+                temp_data[i].~T();
+            }
+        }
+
+        if (is_heap_) {
+            delete[] heap_ptr;
+        }
+
+        if (other.is_heap_) {
+            char* new_heap = new char[sizeof(T) * other.capacity_];
+
+            T* temp_ptr = reinterpret_cast<T*>(new_heap);
+            for (size_t i = 0; i < other.size_; i++) {
+                const T* old_ptr = reinterpret_cast<const T*>(other.heap_ptr) + i;
+                new (&temp_ptr[i]) T(*old_ptr);
+            }
+
+            heap_ptr = new_heap;
+            size_ = other.size_;
+            capacity_ = other.capacity_;
+            is_heap_ = true;
+        }
+        else {
+            for (size_t i = 0; i < other.size_; i++) {
+                const T* old_data = reinterpret_cast<const T*>(other.inline_data) + i;
+                T* new_data = reinterpret_cast<T*>(inline_data) + i;
+                new (new_data) T(*old_data);
+            }
+
+            size_ = other.size_;
+            capacity_ = N;
+            is_heap_ = false;
+        }
+
+        return *this;
+    }
 };
