@@ -1,0 +1,3 @@
+/home/vibe/task3/build/CMakeFiles/json_parser.dir
+/home/vibe/task3/build/CMakeFiles/edit_cache.dir
+/home/vibe/task3/build/CMakeFiles/rebuild_cache.dir
