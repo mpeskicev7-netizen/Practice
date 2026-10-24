@@ -31,7 +31,9 @@ struct Token {
 
 class Lexer {
     public:
-        explicit Lexer(const std::string& input);
+        explicit Lexer(const std::string& input) : pos_(0), line_(1), column_(1), input_(input){
+
+        }
 
         Token nextToken() {
             SkipSpace();
@@ -39,7 +41,49 @@ class Lexer {
             if (pos_ >= input_.size()) {
                 return {TokenType::End, "", line_, column_};
             }
-            return {TokenType::End, "", line_, column_};
+
+            size_t token_line = line_;
+            size_t token_column = column_;
+            
+            char y = input_[pos_];
+
+            if (y == '{') {
+                pos_++;
+                column_++;
+                return {TokenType::LBrace, "{", token_line, token_column};
+            }
+
+            if (y == '}') {
+                pos_++;
+                column_++;
+                return {TokenType::RBrace, "}", token_line, token_column};
+            }
+
+            if (y == '[') {
+                pos_++;
+                column_++;
+                return {TokenType::LBracket, "[", token_line, token_column};
+            }
+
+            if (y == ']') {
+                pos_++;
+                column_++;
+                return {TokenType::RBracket, "]", token_line, token_column};
+            }
+
+            if (y == ',') {
+                pos_++;
+                column_++;
+                return {TokenType::Comma, ",", token_line, token_column};
+            }
+
+            if (y == ':') {
+                pos_++;
+                column_++;
+                return {TokenType::Colon, ":", token_line, token_column};
+            }
+
+            return {TokenType::End, "", token_line, token_column};
         }
     private:
         size_t pos_;

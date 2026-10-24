@@ -1,7 +1,17 @@
-#include <iostream>
+   #include "lexer.hpp"
+   #include <iostream>
 
-using namespace std;
-
-int main() {
-    return 0;
-}
+   int main() {
+       std::string test_json = "{ [ ] } , :";
+       Lexer lexer(test_json);
+       
+       while (true) {
+           Token t = lexer.nextToken();
+           std::cout << "Type: " << static_cast<int>(t.type) 
+                     << ", Line: " << t.line 
+                     << ", Pos: " << t.position << "\n";
+                     
+           if (t.type == TokenType::End) break;
+       }
+       return 0;
+   }

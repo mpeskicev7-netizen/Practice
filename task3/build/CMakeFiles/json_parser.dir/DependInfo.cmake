@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/vibe/task3/src/main.cpp" "CMakeFiles/json_parser.dir/src/main.cpp.o" "gcc" "CMakeFiles/json_parser.dir/src/main.cpp.o.d"
   "/home/vibe/task3/src/parser.cpp" "CMakeFiles/json_parser.dir/src/parser.cpp.o" "gcc" "CMakeFiles/json_parser.dir/src/parser.cpp.o.d"
   "/home/vibe/task3/src/path.cpp" "CMakeFiles/json_parser.dir/src/path.cpp.o" "gcc" "CMakeFiles/json_parser.dir/src/path.cpp.o.d"
+  "" "json_parser" "gcc" "CMakeFiles/json_parser.dir/link.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
