@@ -1,0 +1,32 @@
+[
+{
+  "directory": "/home/vibe/task3/build",
+  "command": "/usr/bin/g++  -I/home/vibe/task3/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/json_parser.dir/src/main.cpp.o -c /home/vibe/task3/src/main.cpp",
+  "file": "/home/vibe/task3/src/main.cpp",
+  "output": "CMakeFiles/json_parser.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/vibe/task3/build",
+  "command": "/usr/bin/g++  -I/home/vibe/task3/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/json_parser.dir/src/json.cpp.o -c /home/vibe/task3/src/json.cpp",
+  "file": "/home/vibe/task3/src/json.cpp",
+  "output": "CMakeFiles/json_parser.dir/src/json.cpp.o"
+},
+{
+  "directory": "/home/vibe/task3/build",
+  "command": "/usr/bin/g++  -I/home/vibe/task3/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/json_parser.dir/src/lexer.cpp.o -c /home/vibe/task3/src/lexer.cpp",
+  "file": "/home/vibe/task3/src/lexer.cpp",
+  "output": "CMakeFiles/json_parser.dir/src/lexer.cpp.o"
+},
+{
+  "directory": "/home/vibe/task3/build",
+  "command": "/usr/bin/g++  -I/home/vibe/task3/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/json_parser.dir/src/parser.cpp.o -c /home/vibe/task3/src/parser.cpp",
+  "file": "/home/vibe/task3/src/parser.cpp",
+  "output": "CMakeFiles/json_parser.dir/src/parser.cpp.o"
+},
+{
+  "directory": "/home/vibe/task3/build",
+  "command": "/usr/bin/g++  -I/home/vibe/task3/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/json_parser.dir/src/path.cpp.o -c /home/vibe/task3/src/path.cpp",
+  "file": "/home/vibe/task3/src/path.cpp",
+  "output": "CMakeFiles/json_parser.dir/src/path.cpp.o"
+}
+]

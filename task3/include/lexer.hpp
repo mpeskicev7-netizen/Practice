@@ -4,6 +4,7 @@
 #include <vector>
 #include <variant>
 #include <cctype>
+#include <stdexcept>
 
 enum class TokenType {
     String,
@@ -83,6 +84,10 @@ class Lexer {
                 return {TokenType::Colon, ":", token_line, token_column};
             }
 
+            if (std::isdigit(y) || y == '-') {
+                return ReadNumbers(); 
+            }
+
             return {TokenType::End, "", token_line, token_column};
         }
     private:
@@ -105,5 +110,64 @@ class Lexer {
 
                 pos_++;
             }
+        }
+
+        Token ReadNumbers() {
+            size_t start = pos_;
+
+            if (pos_ < input_.size() && input_[pos_] == '-') {
+                pos_++;
+                column_++;
+            }
+
+            char first = input_[pos_];
+
+            if (!std::isdigit(first)) {
+                throw std::runtime_error("Expected digit at position " + std::to_string(pos_));
+            }
+
+            pos_++;
+            column_++;
+
+            if (first == '0' && pos_ < input_.size() && std::isdigit(input_[pos_])) {
+                std::string bad = input_.substr(start, 2); 
+                throw std::runtime_error("Invalid number: leading zero not allowed in JSON (found '" + bad + "')");
+            }
+
+            while (pos_ < input_.size() && std::isdigit(input_[pos_])) {
+                pos_++;
+                column_++;
+            }
+
+            if (pos_ < input_.size() && input_[pos_] == '.') {
+                pos_++;
+                column_++;
+
+                while (pos_ < input_.size() && std::isdigit(input_[pos_])) {
+                    pos_++;
+                    column_++;
+                }
+            }
+
+            if (pos_ < input_.size() && (input_[pos_] == 'e' || input_[pos_] == 'E')) {
+                pos_++;
+                column_++;
+
+                if (pos_ < input_.size() && (input_[pos_] == '+' || input_[pos_] == '-')) {
+                    pos_++;
+                    column_++;
+                }
+
+                while (pos_ < input_.size() && std::isdigit(input_[pos_])) {
+                    pos_++;
+                    column_++;
+                }
+            }
+
+            std::string text = input_.substr(start, pos_ - start);
+            double value = std::stod(text);
+
+            return {TokenType::Number, value, line_, column_};
+
         }
 };
