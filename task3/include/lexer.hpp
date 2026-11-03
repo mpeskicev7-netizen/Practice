@@ -92,6 +92,10 @@ class Lexer {
                 return ReadString();
             }
 
+            if (y == 't' || y == 'T' || y == 'f' || y == 'F' || y == 'n' || y == 'F') {
+                return ReadKeywords();
+            }
+
             return {TokenType::End, "", token_line, token_column};
         }
     private:
@@ -224,5 +228,34 @@ class Lexer {
             column_++;
 
             return {TokenType::String, result, line_, column_};
+        }
+
+        Token ReadKeywords() {
+            size_t start = pos_;
+            std::string s;
+
+            while (pos_ < input_.size() && std::isalpha(input_[pos_])) {
+                pos_++;
+                column_++;
+            }
+
+            std::string word = input_.substr(start, pos_ - start);
+
+            if (pos_ < input_.size() && std::isalnum(input_[pos_])) {
+                throw std::runtime_error("Invalid keyword: " + word);
+            }
+
+            if (word == "true") {
+                return {TokenType::True, word, line_, column_};
+            }
+            if (word == "false") {
+                return {TokenType::False, word, line_, column_};
+            }
+            if (word == "null") {
+                return {TokenType::Null, word, line_, column_};
+            }
+
+            throw std::runtime_error("This keywords not found");
+
         }
 };
