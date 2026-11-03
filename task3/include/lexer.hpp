@@ -88,6 +88,10 @@ class Lexer {
                 return ReadNumbers(); 
             }
 
+            if (y == '"') {
+                return ReadString();
+            }
+
             return {TokenType::End, "", token_line, token_column};
         }
     private:
@@ -169,5 +173,56 @@ class Lexer {
 
             return {TokenType::Number, value, line_, column_};
 
+        }
+
+        Token ReadString() {
+            pos_++;
+            column_++;
+
+            std::string result;
+
+            while(pos_ < input_.size() && input_[pos_] != '"') {
+                char c = input_[pos_];
+
+                if (c == '\\') {
+                    pos_++;
+                    column_++;
+
+                    if (pos_ >= input_.size()) {
+                        throw std::runtime_error("Unexpected end of string after escape character");
+                    }
+
+                    char escaped = input_[pos_];
+
+                    if (escaped == '"') result += '"';
+                    else if (escaped == '\\') result += '\\';
+                    else if (escaped == 'n') result += '\n';
+                    else if (escaped == 't') result += '\t';
+                    else if (escaped == 'r') result += '\r';
+                    else if (escaped == 'b') result += '\b';
+                    else if (escaped == 'f') result += '\f';
+                    else if (escaped == '/') result += '/';
+                    else {
+                        throw std::runtime_error("Invalid escape sequence: \\" + std::string(1, escaped));
+                    }
+
+                    pos_++;
+                    column_++;
+                }
+                else {
+                    result += c;
+                    pos_++;
+                    column_++;
+                }
+            }
+
+            if (pos_ >= input_.size()) {
+                throw std::runtime_error("Unexpected end of string after escape character");
+            }
+
+            pos_++;
+            column_++;
+
+            return {TokenType::String, result, line_, column_};
         }
 };
