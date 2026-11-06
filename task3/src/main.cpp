@@ -92,6 +92,28 @@ int main() {
     // Комбинированные
     test("[true, false, null]", "Массив с ключевыми словами");
     test("{\"active\": true, \"deleted\": false, \"data\": null}", "Объект с ключевыми словами");
+    test("\u34f6", "проверка");
     
     return 0;
 }
+
+/*#include <iostream>
+#include <string>
+#include "lexer.hpp" // или как у тебя называется файл лексера
+
+int main() {
+    // То есть мы скармливаем лексеру ровно: "\u0041"
+    std::string input = "\"\\u0041\""; 
+    
+    Lexer lexer(input);
+    Token t = lexer.nextToken();
+
+    // Достаем строку из варианта (твой TokenValue хранит string или double)
+    if (std::holds_alternative<std::string>(t.value)) {
+        std::string result = std::get<std::string>(t.value);
+        std::cout << "Длина строки: " << result.length() << "\n";
+        std::cout << "Содержимое: [" << result << "]\n";
+    }
+
+    return 0;
+}*/

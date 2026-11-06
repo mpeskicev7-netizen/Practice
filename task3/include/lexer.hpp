@@ -206,6 +206,22 @@ class Lexer {
                     else if (escaped == 'b') result += '\b';
                     else if (escaped == 'f') result += '\f';
                     else if (escaped == '/') result += '/';
+                    else if (escaped == 'u') {
+                        result += '\\';
+                        result += 'u';
+
+                        for (int i = 0; i < 4; i++) {
+                            if (pos_ + 1 + i < input_.size() && std::isxdigit(input_[pos_ + 1 + i])) {
+                                result += input_[pos_ + 1 + i];
+                            }
+                            else {
+                                throw std::runtime_error("Invalid escape sequence");
+                            }
+                        }
+
+                        pos_ += 4;
+                        column_ += 4;
+                    }
                     else {
                         throw std::runtime_error("Invalid escape sequence: \\" + std::string(1, escaped));
                     }
