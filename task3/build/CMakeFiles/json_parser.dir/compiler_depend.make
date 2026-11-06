@@ -16,6 +16,7 @@ CMakeFiles/json_parser.dir/src/main.cpp.o: /home/vibe/task3/src/main.cpp \
   /usr/include/asm-generic/int-ll64.h \
   /usr/include/asm-generic/posix_types.h \
   /usr/include/asm-generic/types.h \
+  /usr/include/assert.h \
   /usr/include/c++/15/backward/binders.h \
   /usr/include/c++/15/bit \
   /usr/include/c++/15/bits/alloc_traits.h \
@@ -81,6 +82,7 @@ CMakeFiles/json_parser.dir/src/main.cpp.o: /home/vibe/task3/src/main.cpp \
   /usr/include/c++/15/bits/utility.h \
   /usr/include/c++/15/bits/vector.tcc \
   /usr/include/c++/15/bits/version.h \
+  /usr/include/c++/15/cassert \
   /usr/include/c++/15/cctype \
   /usr/include/c++/15/cerrno \
   /usr/include/c++/15/clocale \
@@ -385,7 +387,11 @@ CMakeFiles/json_parser.dir/src/json.cpp.o:
 
 /usr/include/stdlib.h:
 
-/usr/include/c++/15/ostream:
+/usr/include/stdio.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o:
+
+/usr/include/sched.h:
 
 /usr/include/asm-generic/bitsperlong.h:
 
@@ -415,14 +421,6 @@ CMakeFiles/json_parser.dir/src/json.cpp.o:
 
 /usr/include/c++/15/bits/move.h:
 
-/usr/lib/x86_64-linux-gnu/libc.so.6:
-
-/usr/include/c++/15/bits/parse_numbers.h:
-
-/usr/include/c++/15/bits/localefwd.h:
-
-/usr/include/c++/15/bits/functexcept.h:
-
 /usr/include/x86_64-linux-gnu/asm/posix_types.h:
 
 /usr/include/c++/15/bits/postypes.h:
@@ -431,13 +429,13 @@ CMakeFiles/json_parser.dir/src/json.cpp.o:
 
 /usr/include/c++/15/bits/ios_base.h:
 
+/usr/include/c++/15/bits/alloc_traits.h:
+
 /usr/lib/x86_64-linux-gnu/libm.so.6:
 
 /usr/include/c++/15/debug/assertions.h:
 
 /home/vibe/task3/src/main.cpp:
-
-/usr/include/c++/15/bits/alloc_traits.h:
 
 /usr/include/c++/15/bits/locale_classes.tcc:
 
@@ -453,21 +451,29 @@ CMakeFiles/json_parser.dir/src/json.cpp.o:
 
 /usr/include/c++/15/bits/nested_exception.h:
 
+/usr/include/assert.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
 
 /usr/include/c++/15/bits/vector.tcc:
+
+/usr/include/c++/15/bits/functexcept.h:
 
 /usr/include/x86_64-linux-gnu/bits/waitstatus.h:
 
 /usr/include/c++/15/bits/memory_resource.h:
 
-/usr/include/c++/15/backward/binders.h:
+CMakeFiles/json_parser.dir/src/parser.cpp.o:
 
-/usr/include/c++/15/bits/uses_allocator_args.h:
+/usr/include/c++/15/bits/ptr_traits.h:
 
-/usr/include/c++/15/initializer_list:
+/usr/include/c++/15/debug/debug.h:
 
-/usr/include/c++/15/bits/exception.h:
+/usr/lib/x86_64-linux-gnu/libc.so.6:
+
+/usr/include/c++/15/bits/parse_numbers.h:
+
+/usr/include/c++/15/bits/localefwd.h:
 
 /usr/include/alloca.h:
 
@@ -505,13 +511,21 @@ CMakeFiles/json_parser.dir/src/json.cpp.o:
 
 /usr/include/c++/15/bits/basic_ios.tcc:
 
-/usr/include/c++/15/bits/exception_ptr.h:
+/usr/include/features-time64.h:
 
-/usr/include/c++/15/cstddef:
+/usr/include/c++/15/bits/exception.h:
+
+/usr/include/c++/15/initializer_list:
+
+/usr/include/c++/15/backward/binders.h:
+
+/usr/include/c++/15/bits/uses_allocator_args.h:
+
+/usr/include/c++/15/bits/exception_ptr.h:
 
 /home/vibe/task3/src/lexer.cpp:
 
-/usr/include/features-time64.h:
+/usr/include/c++/15/cstddef:
 
 /usr/include/c++/15/bits/istream.tcc:
 
@@ -534,6 +548,12 @@ CMakeFiles/json_parser.dir/src/json.cpp.o:
 /usr/include/c++/15/bits/cxxabi_forced.h:
 
 /usr/include/c++/15/tuple:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
+
+/usr/include/c++/15/bits/exception_defines.h:
+
+/usr/include/c++/15/bits/predefined_ops.h:
 
 /usr/include/c++/15/bits/allocator.h:
 
@@ -571,17 +591,7 @@ CMakeFiles/json_parser.dir/src/json.cpp.o:
 
 /usr/include/c++/15/bits/charconv.h:
 
-CMakeFiles/json_parser.dir/src/parser.cpp.o:
-
-/usr/include/c++/15/bits/ptr_traits.h:
-
-/usr/include/c++/15/debug/debug.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
-
-/usr/include/c++/15/bits/predefined_ops.h:
-
-/usr/include/c++/15/bits/exception_defines.h:
+/usr/include/c++/15/ostream:
 
 /usr/include/c++/15/bits/stl_construct.h:
 
@@ -594,6 +604,8 @@ CMakeFiles/json_parser.dir/src/parser.cpp.o:
 /usr/include/c++/15/cwctype:
 
 /usr/include/c++/15/bits/stl_vector.h:
+
+/usr/include/c++/15/cassert:
 
 /usr/include/c++/15/bits/streambuf.tcc:
 
@@ -716,9 +728,3 @@ CMakeFiles/json_parser.dir/src/path.cpp.o:
 /usr/include/c++/15/ext/alloc_traits.h:
 
 /usr/include/linux/types.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o:
-
-/usr/include/sched.h:
-
-/usr/include/stdio.h:

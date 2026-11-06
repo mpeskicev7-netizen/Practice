@@ -92,7 +92,7 @@ int main() {
     // Комбинированные
     test("[true, false, null]", "Массив с ключевыми словами");
     test("{\"active\": true, \"deleted\": false, \"data\": null}", "Объект с ключевыми словами");
-    test("\u34f6", "проверка");
+    test("\"\\u0041\"", "проверка");
     
     return 0;
 }
