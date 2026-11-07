@@ -1,0 +1,1 @@
+/usr/bin/g++ -g -Wl,--dependency-file=CMakeFiles/test_path.dir/link.d CMakeFiles/test_path.dir/tests/test_path.cpp.o CMakeFiles/test_path.dir/src/lexer.cpp.o CMakeFiles/test_path.dir/src/parser.cpp.o CMakeFiles/test_path.dir/src/json.cpp.o CMakeFiles/test_path.dir/src/path.cpp.o -o test_path

@@ -28,5 +28,83 @@
   "command": "/usr/bin/g++  -I/home/vibe/task3/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/json_parser.dir/src/path.cpp.o -c /home/vibe/task3/src/path.cpp",
   "file": "/home/vibe/task3/src/path.cpp",
   "output": "CMakeFiles/json_parser.dir/src/path.cpp.o"
+},
+{
+  "directory": "/home/vibe/task3/build",
+  "command": "/usr/bin/g++  -I/home/vibe/task3/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/test_json_value.dir/tests/test_json_value.cpp.o -c /home/vibe/task3/tests/test_json_value.cpp",
+  "file": "/home/vibe/task3/tests/test_json_value.cpp",
+  "output": "CMakeFiles/test_json_value.dir/tests/test_json_value.cpp.o"
+},
+{
+  "directory": "/home/vibe/task3/build",
+  "command": "/usr/bin/g++  -I/home/vibe/task3/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/test_json_value.dir/src/json.cpp.o -c /home/vibe/task3/src/json.cpp",
+  "file": "/home/vibe/task3/src/json.cpp",
+  "output": "CMakeFiles/test_json_value.dir/src/json.cpp.o"
+},
+{
+  "directory": "/home/vibe/task3/build",
+  "command": "/usr/bin/g++  -I/home/vibe/task3/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/test_lexer.dir/tests/test_lexer.cpp.o -c /home/vibe/task3/tests/test_lexer.cpp",
+  "file": "/home/vibe/task3/tests/test_lexer.cpp",
+  "output": "CMakeFiles/test_lexer.dir/tests/test_lexer.cpp.o"
+},
+{
+  "directory": "/home/vibe/task3/build",
+  "command": "/usr/bin/g++  -I/home/vibe/task3/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/test_lexer.dir/src/lexer.cpp.o -c /home/vibe/task3/src/lexer.cpp",
+  "file": "/home/vibe/task3/src/lexer.cpp",
+  "output": "CMakeFiles/test_lexer.dir/src/lexer.cpp.o"
+},
+{
+  "directory": "/home/vibe/task3/build",
+  "command": "/usr/bin/g++  -I/home/vibe/task3/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/test_parser.dir/tests/test_parser.cpp.o -c /home/vibe/task3/tests/test_parser.cpp",
+  "file": "/home/vibe/task3/tests/test_parser.cpp",
+  "output": "CMakeFiles/test_parser.dir/tests/test_parser.cpp.o"
+},
+{
+  "directory": "/home/vibe/task3/build",
+  "command": "/usr/bin/g++  -I/home/vibe/task3/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/test_parser.dir/src/lexer.cpp.o -c /home/vibe/task3/src/lexer.cpp",
+  "file": "/home/vibe/task3/src/lexer.cpp",
+  "output": "CMakeFiles/test_parser.dir/src/lexer.cpp.o"
+},
+{
+  "directory": "/home/vibe/task3/build",
+  "command": "/usr/bin/g++  -I/home/vibe/task3/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/test_parser.dir/src/parser.cpp.o -c /home/vibe/task3/src/parser.cpp",
+  "file": "/home/vibe/task3/src/parser.cpp",
+  "output": "CMakeFiles/test_parser.dir/src/parser.cpp.o"
+},
+{
+  "directory": "/home/vibe/task3/build",
+  "command": "/usr/bin/g++  -I/home/vibe/task3/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/test_parser.dir/src/json.cpp.o -c /home/vibe/task3/src/json.cpp",
+  "file": "/home/vibe/task3/src/json.cpp",
+  "output": "CMakeFiles/test_parser.dir/src/json.cpp.o"
+},
+{
+  "directory": "/home/vibe/task3/build",
+  "command": "/usr/bin/g++  -I/home/vibe/task3/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/test_path.dir/tests/test_path.cpp.o -c /home/vibe/task3/tests/test_path.cpp",
+  "file": "/home/vibe/task3/tests/test_path.cpp",
+  "output": "CMakeFiles/test_path.dir/tests/test_path.cpp.o"
+},
+{
+  "directory": "/home/vibe/task3/build",
+  "command": "/usr/bin/g++  -I/home/vibe/task3/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/test_path.dir/src/lexer.cpp.o -c /home/vibe/task3/src/lexer.cpp",
+  "file": "/home/vibe/task3/src/lexer.cpp",
+  "output": "CMakeFiles/test_path.dir/src/lexer.cpp.o"
+},
+{
+  "directory": "/home/vibe/task3/build",
+  "command": "/usr/bin/g++  -I/home/vibe/task3/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/test_path.dir/src/parser.cpp.o -c /home/vibe/task3/src/parser.cpp",
+  "file": "/home/vibe/task3/src/parser.cpp",
+  "output": "CMakeFiles/test_path.dir/src/parser.cpp.o"
+},
+{
+  "directory": "/home/vibe/task3/build",
+  "command": "/usr/bin/g++  -I/home/vibe/task3/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/test_path.dir/src/json.cpp.o -c /home/vibe/task3/src/json.cpp",
+  "file": "/home/vibe/task3/src/json.cpp",
+  "output": "CMakeFiles/test_path.dir/src/json.cpp.o"
+},
+{
+  "directory": "/home/vibe/task3/build",
+  "command": "/usr/bin/g++  -I/home/vibe/task3/include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/test_path.dir/src/path.cpp.o -c /home/vibe/task3/src/path.cpp",
+  "file": "/home/vibe/task3/src/path.cpp",
+  "output": "CMakeFiles/test_path.dir/src/path.cpp.o"
 }
 ]

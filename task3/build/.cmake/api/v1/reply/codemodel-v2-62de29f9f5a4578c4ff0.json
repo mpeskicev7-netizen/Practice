@@ -1,0 +1,97 @@
+{
+	"configurations" : 
+	[
+		{
+			"abstractTargets" : [],
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-9ad1a58d4644cf6543fa.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "json_parser",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "json_parser::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-json_parser-Debug-c74f0aa3566923adcce7.json",
+					"name" : "json_parser",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_json_value::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_json_value-Debug-fb1402047554e93b4984.json",
+					"name" : "test_json_value",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_lexer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_lexer-Debug-761c34a14c606cd69b39.json",
+					"name" : "test_lexer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_parser::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_parser-Debug-5dd5869499a109b9c531.json",
+					"name" : "test_parser",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_path::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_path-Debug-13cf0b655dfc3272151f.json",
+					"name" : "test_path",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/vibe/task3/build",
+		"source" : "/home/vibe/task3"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	}
+}

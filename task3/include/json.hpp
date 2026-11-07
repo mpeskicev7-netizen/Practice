@@ -24,6 +24,8 @@ class JsonValue {
     private:
         JsonValueVariant value_;
     public:
+        JsonValue() : value_(nullptr) {}
+
         JsonValue(double data) : value_(data) {}
 
         JsonValue(std::string data) : value_(std::move(data)) {}
@@ -31,6 +33,10 @@ class JsonValue {
         JsonValue(std::nullptr_t) : value_(nullptr) {}
         
         JsonValue(bool data) : value_(data) {}
+
+        JsonValue(JsonArray&& arr) : value_(std::make_unique<JsonArray>(std::move(arr))) {}
+
+        JsonValue(JsonObject&& obj) : value_(std::make_unique<JsonObject>(std::move(obj))) {}
 
         bool is_bool() const {
             return std::holds_alternative<bool>(value_);
@@ -46,6 +52,14 @@ class JsonValue {
 
         bool is_null() const {
             return std::holds_alternative<nullptr_t>(value_);
+        }
+
+        bool is_array() const {
+            return std::holds_alternative<std::unique_ptr<JsonArray>>(value_);
+        }
+
+        bool is_object() const {
+            return std::holds_alternative<std::unique_ptr<JsonObject>>(value_);
         }
 
         double getDouble() const {
@@ -70,5 +84,46 @@ class JsonValue {
             }
 
             return std::get<bool>(value_);
+        }
+
+        const JsonArray& getJsonArray() const {
+            if (!is_array()) {
+                throw std::runtime_error("Expected array");
+            }
+
+            return *std::get<std::unique_ptr<JsonArray>>(value_);
+        }
+
+        const JsonObject& getJsonObject() const {
+            if (!is_object()) {
+                throw std::runtime_error("Expected object");
+            }
+
+            return *std::get<std::unique_ptr<JsonObject>>(value_);
+        }
+
+        bool operator==(const JsonValue& other) const {
+            if (!(this->value_.index() == other.value_.index())) {
+                return false;
+            }
+
+            switch(value_.index()) {
+                case 0:
+                    return true;
+                case 1:
+                    return std::get<std::string>(this->value_) == std::get<std::string>(other.value_);
+                case 2:
+                    return *std::get<std::unique_ptr<JsonArray>>(this->value_) == *std::get<std::unique_ptr<JsonArray>>(other.value_);
+                case 3:
+                    return *std::get<std::unique_ptr<JsonObject>>(this->value_) == *std::get<std::unique_ptr<JsonObject>>(other.value_);
+                case 4:
+                    return std::get<double>(this->value_) == std::get<double>(other.value_);
+                case 5:
+                    return std::get<bool>(this->value_) == std::get<bool>(other.value_);
+                break;
+
+                default:
+                    return false;
+            }
         }
 };
