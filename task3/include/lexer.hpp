@@ -21,6 +21,41 @@ enum class TokenType {
     End
 };
 
+std::string ToString(TokenType t) {
+    std::string result;
+
+    switch(t) {
+        case TokenType::String:
+            return result += "String";
+        case TokenType::Number:
+            return result += "Number";
+        case TokenType::True:
+            return result += "True";
+        case TokenType::False:
+            return result += "False";
+        case TokenType::LBrace:
+            return result += "LBrace";
+        case TokenType::RBrace:
+            return result += "RBrace";
+        case TokenType::LBracket:
+            return result += "LBracket";
+        case TokenType::RBracket:
+            return result += "RBracket";
+        case TokenType::Comma:
+            return result += "Comma";
+        case TokenType::Colon:
+            return result += "Colon";
+        case TokenType::Null:
+            return result += "Null";
+        case TokenType::End:
+            return result += "End";
+        break;
+
+        default:
+            throw std::runtime_error("Unknown type");
+    }
+}
+
 using TokenValue = std::variant<std::string, double>;
 
 struct Token {

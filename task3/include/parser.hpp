@@ -29,4 +29,15 @@ class Parser {
 
             return tok_[pos_++];
         }
+
+        const Token& Consume(TokenType expeсted) {
+            std::string msg = "Expected " + ToString(expeсted) + ", but got " + ToString(Peek().type) + " at line " + std::to_string(Peek().line) + ", column " + std::to_string(Peek().position);
+
+            if (Peek().type == expeсted) {
+                return Advance();
+            }
+            else {
+                throw std::runtime_error(msg);
+            }
+        }
 };
