@@ -49,7 +49,6 @@ std::string ToString(TokenType t) {
             return result += "Null";
         case TokenType::End:
             return result += "End";
-        break;
 
         default:
             throw std::runtime_error("Unknown type");
@@ -127,7 +126,7 @@ class Lexer {
                 return ReadString();
             }
 
-            if (y == 't' || y == 'T' || y == 'f' || y == 'F' || y == 'n' || y == 'F') {
+            if (y == 't' || y == 'T' || y == 'f' || y == 'F' || y == 'n' || y == 'N') {
                 return ReadKeywords();
             }
 

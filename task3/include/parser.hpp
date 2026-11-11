@@ -12,7 +12,7 @@ class Parser {
         std::vector<Token> tok_;
         size_t pos_;
     public:
-        Parser(std::vector<Token> tokens) : pos_(0), tok_(std::move(tokens)) {} 
+        Parser(std::vector<Token> tokens) : tok_(std::move(tokens)), pos_(0) {} 
         
         const Token& Peek() const {
             if (pos_ >= tok_.size()) {
@@ -73,6 +73,43 @@ class Parser {
             }
         }
 
+        JsonValue ParseObject() {
+            Consume(TokenType::LBrace);
+
+            JsonObject obj;
+
+            if (Peek().type == TokenType::RBrace) {
+                Consume(TokenType::RBrace);
+
+                return JsonValue(std::move(obj));
+            }
+            else {
+                while(true) {
+                    const Token& KeyToken = Consume(TokenType::String);
+                    std::string key = std::get<std::string>(KeyToken.value);
+
+                    Consume(TokenType::Colon);
+
+                    JsonValue val = ParseValue();
+                    obj[key] = std::move(val);
+
+                    if (Peek().type == TokenType::Comma) {
+                        Consume(TokenType::Comma);
+                        continue;
+                    }
+                    if (Peek().type == TokenType::RBrace) {
+                        Consume(TokenType::RBrace);
+                        break;
+                    }
+                    else {
+                        throw std::runtime_error("Unknown type " + ToString(Peek().type) + " at line " + std::to_string(Peek().line) + ", column " + std::to_string(Peek().position));
+                    }
+                }
+
+                return JsonValue(std::move(obj));
+            }
+        }
+
         JsonValue ParseValue() {
             const Token& t = Peek();
 
@@ -99,6 +136,8 @@ class Parser {
                     return JsonValue(std::get<std::string>(t.value));
                 case TokenType::LBracket:
                     return ParseArray();
+                case TokenType::LBrace:
+                    return ParseObject();
                 default:
                 throw std::runtime_error("Unexpected token " + ToString(t.type) + " at line " + std::to_string(t.line) + ", column " + std::to_string(t.position));
 

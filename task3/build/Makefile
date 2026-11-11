@@ -65,16 +65,6 @@ CMAKE_BINARY_DIR = /home/vibe/task3/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
-	/usr/bin/ctest $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-.PHONY : test/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
@@ -139,67 +129,12 @@ json_parser/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/json_parser.dir/build.make CMakeFiles/json_parser.dir/build
 .PHONY : json_parser/fast
 
-#=============================================================================
-# Target rules for targets named test_json_value
-
-# Build rule for target.
-test_json_value: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_json_value
-.PHONY : test_json_value
-
-# fast build rule for target.
-test_json_value/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_json_value.dir/build.make CMakeFiles/test_json_value.dir/build
-.PHONY : test_json_value/fast
-
-#=============================================================================
-# Target rules for targets named test_lexer
-
-# Build rule for target.
-test_lexer: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_lexer
-.PHONY : test_lexer
-
-# fast build rule for target.
-test_lexer/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_lexer.dir/build.make CMakeFiles/test_lexer.dir/build
-.PHONY : test_lexer/fast
-
-#=============================================================================
-# Target rules for targets named test_parser
-
-# Build rule for target.
-test_parser: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_parser
-.PHONY : test_parser
-
-# fast build rule for target.
-test_parser/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/build
-.PHONY : test_parser/fast
-
-#=============================================================================
-# Target rules for targets named test_path
-
-# Build rule for target.
-test_path: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_path
-.PHONY : test_path
-
-# fast build rule for target.
-test_path/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_path.dir/build.make CMakeFiles/test_path.dir/build
-.PHONY : test_path/fast
-
 src/json.o: src/json.cpp.o
 .PHONY : src/json.o
 
 # target to build an object file
 src/json.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/json_parser.dir/build.make CMakeFiles/json_parser.dir/src/json.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_json_value.dir/build.make CMakeFiles/test_json_value.dir/src/json.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/src/json.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_path.dir/build.make CMakeFiles/test_path.dir/src/json.cpp.o
 .PHONY : src/json.cpp.o
 
 src/json.i: src/json.cpp.i
@@ -208,9 +143,6 @@ src/json.i: src/json.cpp.i
 # target to preprocess a source file
 src/json.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/json_parser.dir/build.make CMakeFiles/json_parser.dir/src/json.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_json_value.dir/build.make CMakeFiles/test_json_value.dir/src/json.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/src/json.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_path.dir/build.make CMakeFiles/test_path.dir/src/json.cpp.i
 .PHONY : src/json.cpp.i
 
 src/json.s: src/json.cpp.s
@@ -219,9 +151,6 @@ src/json.s: src/json.cpp.s
 # target to generate assembly for a file
 src/json.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/json_parser.dir/build.make CMakeFiles/json_parser.dir/src/json.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_json_value.dir/build.make CMakeFiles/test_json_value.dir/src/json.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/src/json.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_path.dir/build.make CMakeFiles/test_path.dir/src/json.cpp.s
 .PHONY : src/json.cpp.s
 
 src/lexer.o: src/lexer.cpp.o
@@ -230,9 +159,6 @@ src/lexer.o: src/lexer.cpp.o
 # target to build an object file
 src/lexer.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/json_parser.dir/build.make CMakeFiles/json_parser.dir/src/lexer.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_lexer.dir/build.make CMakeFiles/test_lexer.dir/src/lexer.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/src/lexer.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_path.dir/build.make CMakeFiles/test_path.dir/src/lexer.cpp.o
 .PHONY : src/lexer.cpp.o
 
 src/lexer.i: src/lexer.cpp.i
@@ -241,9 +167,6 @@ src/lexer.i: src/lexer.cpp.i
 # target to preprocess a source file
 src/lexer.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/json_parser.dir/build.make CMakeFiles/json_parser.dir/src/lexer.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_lexer.dir/build.make CMakeFiles/test_lexer.dir/src/lexer.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/src/lexer.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_path.dir/build.make CMakeFiles/test_path.dir/src/lexer.cpp.i
 .PHONY : src/lexer.cpp.i
 
 src/lexer.s: src/lexer.cpp.s
@@ -252,9 +175,6 @@ src/lexer.s: src/lexer.cpp.s
 # target to generate assembly for a file
 src/lexer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/json_parser.dir/build.make CMakeFiles/json_parser.dir/src/lexer.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_lexer.dir/build.make CMakeFiles/test_lexer.dir/src/lexer.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/src/lexer.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_path.dir/build.make CMakeFiles/test_path.dir/src/lexer.cpp.s
 .PHONY : src/lexer.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -287,8 +207,6 @@ src/parser.o: src/parser.cpp.o
 # target to build an object file
 src/parser.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/json_parser.dir/build.make CMakeFiles/json_parser.dir/src/parser.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/src/parser.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_path.dir/build.make CMakeFiles/test_path.dir/src/parser.cpp.o
 .PHONY : src/parser.cpp.o
 
 src/parser.i: src/parser.cpp.i
@@ -297,8 +215,6 @@ src/parser.i: src/parser.cpp.i
 # target to preprocess a source file
 src/parser.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/json_parser.dir/build.make CMakeFiles/json_parser.dir/src/parser.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/src/parser.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_path.dir/build.make CMakeFiles/test_path.dir/src/parser.cpp.i
 .PHONY : src/parser.cpp.i
 
 src/parser.s: src/parser.cpp.s
@@ -307,8 +223,6 @@ src/parser.s: src/parser.cpp.s
 # target to generate assembly for a file
 src/parser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/json_parser.dir/build.make CMakeFiles/json_parser.dir/src/parser.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/src/parser.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_path.dir/build.make CMakeFiles/test_path.dir/src/parser.cpp.s
 .PHONY : src/parser.cpp.s
 
 src/path.o: src/path.cpp.o
@@ -317,7 +231,6 @@ src/path.o: src/path.cpp.o
 # target to build an object file
 src/path.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/json_parser.dir/build.make CMakeFiles/json_parser.dir/src/path.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_path.dir/build.make CMakeFiles/test_path.dir/src/path.cpp.o
 .PHONY : src/path.cpp.o
 
 src/path.i: src/path.cpp.i
@@ -326,7 +239,6 @@ src/path.i: src/path.cpp.i
 # target to preprocess a source file
 src/path.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/json_parser.dir/build.make CMakeFiles/json_parser.dir/src/path.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_path.dir/build.make CMakeFiles/test_path.dir/src/path.cpp.i
 .PHONY : src/path.cpp.i
 
 src/path.s: src/path.cpp.s
@@ -335,104 +247,7 @@ src/path.s: src/path.cpp.s
 # target to generate assembly for a file
 src/path.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/json_parser.dir/build.make CMakeFiles/json_parser.dir/src/path.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_path.dir/build.make CMakeFiles/test_path.dir/src/path.cpp.s
 .PHONY : src/path.cpp.s
-
-tests/test_json_value.o: tests/test_json_value.cpp.o
-.PHONY : tests/test_json_value.o
-
-# target to build an object file
-tests/test_json_value.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_json_value.dir/build.make CMakeFiles/test_json_value.dir/tests/test_json_value.cpp.o
-.PHONY : tests/test_json_value.cpp.o
-
-tests/test_json_value.i: tests/test_json_value.cpp.i
-.PHONY : tests/test_json_value.i
-
-# target to preprocess a source file
-tests/test_json_value.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_json_value.dir/build.make CMakeFiles/test_json_value.dir/tests/test_json_value.cpp.i
-.PHONY : tests/test_json_value.cpp.i
-
-tests/test_json_value.s: tests/test_json_value.cpp.s
-.PHONY : tests/test_json_value.s
-
-# target to generate assembly for a file
-tests/test_json_value.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_json_value.dir/build.make CMakeFiles/test_json_value.dir/tests/test_json_value.cpp.s
-.PHONY : tests/test_json_value.cpp.s
-
-tests/test_lexer.o: tests/test_lexer.cpp.o
-.PHONY : tests/test_lexer.o
-
-# target to build an object file
-tests/test_lexer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_lexer.dir/build.make CMakeFiles/test_lexer.dir/tests/test_lexer.cpp.o
-.PHONY : tests/test_lexer.cpp.o
-
-tests/test_lexer.i: tests/test_lexer.cpp.i
-.PHONY : tests/test_lexer.i
-
-# target to preprocess a source file
-tests/test_lexer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_lexer.dir/build.make CMakeFiles/test_lexer.dir/tests/test_lexer.cpp.i
-.PHONY : tests/test_lexer.cpp.i
-
-tests/test_lexer.s: tests/test_lexer.cpp.s
-.PHONY : tests/test_lexer.s
-
-# target to generate assembly for a file
-tests/test_lexer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_lexer.dir/build.make CMakeFiles/test_lexer.dir/tests/test_lexer.cpp.s
-.PHONY : tests/test_lexer.cpp.s
-
-tests/test_parser.o: tests/test_parser.cpp.o
-.PHONY : tests/test_parser.o
-
-# target to build an object file
-tests/test_parser.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/tests/test_parser.cpp.o
-.PHONY : tests/test_parser.cpp.o
-
-tests/test_parser.i: tests/test_parser.cpp.i
-.PHONY : tests/test_parser.i
-
-# target to preprocess a source file
-tests/test_parser.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/tests/test_parser.cpp.i
-.PHONY : tests/test_parser.cpp.i
-
-tests/test_parser.s: tests/test_parser.cpp.s
-.PHONY : tests/test_parser.s
-
-# target to generate assembly for a file
-tests/test_parser.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/tests/test_parser.cpp.s
-.PHONY : tests/test_parser.cpp.s
-
-tests/test_path.o: tests/test_path.cpp.o
-.PHONY : tests/test_path.o
-
-# target to build an object file
-tests/test_path.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_path.dir/build.make CMakeFiles/test_path.dir/tests/test_path.cpp.o
-.PHONY : tests/test_path.cpp.o
-
-tests/test_path.i: tests/test_path.cpp.i
-.PHONY : tests/test_path.i
-
-# target to preprocess a source file
-tests/test_path.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_path.dir/build.make CMakeFiles/test_path.dir/tests/test_path.cpp.i
-.PHONY : tests/test_path.cpp.i
-
-tests/test_path.s: tests/test_path.cpp.s
-.PHONY : tests/test_path.s
-
-# target to generate assembly for a file
-tests/test_path.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_path.dir/build.make CMakeFiles/test_path.dir/tests/test_path.cpp.s
-.PHONY : tests/test_path.cpp.s
 
 # Help Target
 help:
@@ -442,12 +257,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... test"
 	@echo "... json_parser"
-	@echo "... test_json_value"
-	@echo "... test_lexer"
-	@echo "... test_parser"
-	@echo "... test_path"
 	@echo "... src/json.o"
 	@echo "... src/json.i"
 	@echo "... src/json.s"
@@ -463,18 +273,6 @@ help:
 	@echo "... src/path.o"
 	@echo "... src/path.i"
 	@echo "... src/path.s"
-	@echo "... tests/test_json_value.o"
-	@echo "... tests/test_json_value.i"
-	@echo "... tests/test_json_value.s"
-	@echo "... tests/test_lexer.o"
-	@echo "... tests/test_lexer.i"
-	@echo "... tests/test_lexer.s"
-	@echo "... tests/test_parser.o"
-	@echo "... tests/test_parser.i"
-	@echo "... tests/test_parser.s"
-	@echo "... tests/test_path.o"
-	@echo "... tests/test_path.i"
-	@echo "... tests/test_path.s"
 .PHONY : help
 
 

@@ -32,7 +32,7 @@ void test(const std::string& json, const std::string& description) {
     std::cout << "\n";
 }
 
-int main() {
+void run_lexer_tests() {
    // ===== СТРУКТУРНЫЕ СИМВОЛЫ =====
     test("{", "Открывающая скобка объекта");
     test("}", "Закрывающая скобка объекта");
@@ -93,6 +93,5 @@ int main() {
     test("[true, false, null]", "Массив с ключевыми словами");
     test("{\"active\": true, \"deleted\": false, \"data\": null}", "Объект с ключевыми словами");
     test("\"\\u0041\"", "проверка");
-    
-    return 0;
+
 }

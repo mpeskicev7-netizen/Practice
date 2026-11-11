@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 #include <map>
-#include "json.hpp" // Твой файл с JsonValue
+#include "json_value.hpp" // Твой файл с JsonValue
 
 void test_simple_types() {
     std::cout << "Running test_simple_types...\n";
@@ -120,7 +120,7 @@ void test_exceptions() {
     std::cout << "test_exceptions PASSED\n\n";
 }
 
-int main() {
+void run_json_value_tests() {
     std::cout << "=== Starting JsonValue Tests ===\n\n";
     
     test_simple_types();
@@ -132,5 +132,5 @@ int main() {
     std::cout << "🎉 ALL JSON VALUE TESTS PASSED! 🎉\n";
     std::cout << "================================\n";
     
-    return 0;
+
 }

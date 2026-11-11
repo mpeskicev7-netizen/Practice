@@ -11,7 +11,12 @@ CMakeFiles/json_parser.dir/src/lexer.cpp.o
 
 CMakeFiles/json_parser.dir/src/main.cpp.o
  /home/vibe/task3/src/main.cpp
+ /home/vibe/task3/include/json_value.hpp
  /home/vibe/task3/include/lexer.hpp
+ /home/vibe/task3/include/parser.hpp
+ /home/vibe/task3/tests/test_json_value.cpp
+ /home/vibe/task3/tests/test_lexer.cpp
+ /home/vibe/task3/tests/test_parser.cpp
  /usr/include/alloca.h
  /usr/include/asm-generic/bitsperlong.h
  /usr/include/asm-generic/errno-base.h
@@ -20,10 +25,15 @@ CMakeFiles/json_parser.dir/src/main.cpp.o
  /usr/include/asm-generic/posix_types.h
  /usr/include/asm-generic/types.h
  /usr/include/assert.h
+ /usr/include/c++/15/backward/auto_ptr.h
  /usr/include/c++/15/backward/binders.h
  /usr/include/c++/15/bit
+ /usr/include/c++/15/bits/align.h
  /usr/include/c++/15/bits/alloc_traits.h
+ /usr/include/c++/15/bits/allocated_ptr.h
  /usr/include/c++/15/bits/allocator.h
+ /usr/include/c++/15/bits/atomic_base.h
+ /usr/include/c++/15/bits/atomic_lockfree_defines.h
  /usr/include/c++/15/bits/basic_ios.h
  /usr/include/c++/15/bits/basic_ios.tcc
  /usr/include/c++/15/bits/basic_string.h
@@ -35,6 +45,7 @@ CMakeFiles/json_parser.dir/src/main.cpp.o
  /usr/include/c++/15/bits/cxxabi_forced.h
  /usr/include/c++/15/bits/cxxabi_init_exception.h
  /usr/include/c++/15/bits/enable_special_members.h
+ /usr/include/c++/15/bits/erase_if.h
  /usr/include/c++/15/bits/exception.h
  /usr/include/c++/15/bits/exception_defines.h
  /usr/include/c++/15/bits/exception_ptr.h
@@ -55,6 +66,7 @@ CMakeFiles/json_parser.dir/src/main.cpp.o
  /usr/include/c++/15/bits/move.h
  /usr/include/c++/15/bits/nested_exception.h
  /usr/include/c++/15/bits/new_allocator.h
+ /usr/include/c++/15/bits/node_handle.h
  /usr/include/c++/15/bits/ostream.h
  /usr/include/c++/15/bits/ostream.tcc
  /usr/include/c++/15/bits/ostream_insert.h
@@ -65,6 +77,9 @@ CMakeFiles/json_parser.dir/src/main.cpp.o
  /usr/include/c++/15/bits/range_access.h
  /usr/include/c++/15/bits/refwrap.h
  /usr/include/c++/15/bits/requires_hosted.h
+ /usr/include/c++/15/bits/shared_ptr.h
+ /usr/include/c++/15/bits/shared_ptr_atomic.h
+ /usr/include/c++/15/bits/shared_ptr_base.h
  /usr/include/c++/15/bits/std_abs.h
  /usr/include/c++/15/bits/stl_algobase.h
  /usr/include/c++/15/bits/stl_bvector.h
@@ -73,13 +88,19 @@ CMakeFiles/json_parser.dir/src/main.cpp.o
  /usr/include/c++/15/bits/stl_iterator.h
  /usr/include/c++/15/bits/stl_iterator_base_funcs.h
  /usr/include/c++/15/bits/stl_iterator_base_types.h
+ /usr/include/c++/15/bits/stl_map.h
+ /usr/include/c++/15/bits/stl_multimap.h
  /usr/include/c++/15/bits/stl_pair.h
+ /usr/include/c++/15/bits/stl_raw_storage_iter.h
+ /usr/include/c++/15/bits/stl_tempbuf.h
+ /usr/include/c++/15/bits/stl_tree.h
  /usr/include/c++/15/bits/stl_uninitialized.h
  /usr/include/c++/15/bits/stl_vector.h
  /usr/include/c++/15/bits/streambuf.tcc
  /usr/include/c++/15/bits/streambuf_iterator.h
  /usr/include/c++/15/bits/string_view.tcc
  /usr/include/c++/15/bits/stringfwd.h
+ /usr/include/c++/15/bits/unique_ptr.h
  /usr/include/c++/15/bits/uses_allocator.h
  /usr/include/c++/15/bits/uses_allocator_args.h
  /usr/include/c++/15/bits/utility.h
@@ -101,6 +122,7 @@ CMakeFiles/json_parser.dir/src/main.cpp.o
  /usr/include/c++/15/ext/aligned_buffer.h
  /usr/include/c++/15/ext/alloc_traits.h
  /usr/include/c++/15/ext/atomicity.h
+ /usr/include/c++/15/ext/concurrence.h
  /usr/include/c++/15/ext/numeric_traits.h
  /usr/include/c++/15/ext/string_conversions.h
  /usr/include/c++/15/ext/type_traits.h
@@ -109,8 +131,12 @@ CMakeFiles/json_parser.dir/src/main.cpp.o
  /usr/include/c++/15/iosfwd
  /usr/include/c++/15/iostream
  /usr/include/c++/15/istream
+ /usr/include/c++/15/map
+ /usr/include/c++/15/memory
  /usr/include/c++/15/new
  /usr/include/c++/15/ostream
+ /usr/include/c++/15/pstl/execution_defs.h
+ /usr/include/c++/15/pstl/glue_memory_defs.h
  /usr/include/c++/15/pstl/pstl_config.h
  /usr/include/c++/15/stdexcept
  /usr/include/c++/15/streambuf
