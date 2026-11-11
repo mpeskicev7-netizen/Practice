@@ -40,4 +40,29 @@ class Parser {
                 throw std::runtime_error(msg);
             }
         }
+
+        JsonValue ParseValue() {
+            const Token& t = Peek();
+
+            switch(t.type) {
+                case TokenType::True:
+                    Consume(TokenType::True);
+
+                    return JsonValue(true);
+                case TokenType::False:
+                    Consume(TokenType::False);
+
+                    return JsonValue(false);
+                case TokenType::Null:
+                    Consume(TokenType::Null);
+
+                    return JsonValue(nullptr);
+                break;
+
+                default:
+                throw std::runtime_error("Expected " + ToString(t.type) + ", but got " + ToString(Peek().type) + " at line " + std::to_string(Peek().line) + ", column " + std::to_string(Peek().position));
+
+                
+            }
+        }
 };
