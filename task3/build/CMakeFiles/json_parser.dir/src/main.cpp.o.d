@@ -172,10 +172,7 @@ CMakeFiles/json_parser.dir/src/main.cpp.o: /home/vibe/task3/src/main.cpp \
  /usr/include/c++/15/bits/stl_map.h \
  /usr/include/c++/15/bits/stl_multimap.h \
  /usr/include/c++/15/bits/erase_if.h \
- /home/vibe/task3/include/json_value.hpp /usr/include/c++/15/variant \
- /usr/include/c++/15/bits/enable_special_members.h \
- /usr/include/c++/15/bits/monostate.h \
- /usr/include/c++/15/bits/parse_numbers.h /usr/include/c++/15/memory \
+ /home/vibe/task3/include/json_value.hpp /usr/include/c++/15/memory \
  /usr/include/c++/15/bits/stl_tempbuf.h \
  /usr/include/c++/15/bits/stl_raw_storage_iter.h \
  /usr/include/c++/15/bits/align.h /usr/include/c++/15/bits/unique_ptr.h \
@@ -188,7 +185,10 @@ CMakeFiles/json_parser.dir/src/main.cpp.o: /home/vibe/task3/src/main.cpp \
  /usr/include/c++/15/bits/atomic_lockfree_defines.h \
  /usr/include/c++/15/backward/auto_ptr.h \
  /usr/include/c++/15/pstl/glue_memory_defs.h \
- /usr/include/c++/15/pstl/execution_defs.h \
+ /usr/include/c++/15/pstl/execution_defs.h /usr/include/c++/15/variant \
+ /usr/include/c++/15/bits/enable_special_members.h \
+ /usr/include/c++/15/bits/monostate.h \
+ /usr/include/c++/15/bits/parse_numbers.h \
  /home/vibe/task3/src/../tests/test_lexer.cpp \
  /home/vibe/task3/include/lexer.hpp \
  /home/vibe/task3/src/../tests/test_parser.cpp \
