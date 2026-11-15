@@ -1,6 +1,5 @@
 #include <iostream>
 
-// Подключаем тестовые файлы
 #include "../tests/test_json_value.cpp"
 #include "../tests/test_lexer.cpp"
 #include "../tests/test_parser.cpp"
