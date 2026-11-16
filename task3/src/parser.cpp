@@ -19,9 +19,9 @@ const Token& Parser::Advance() {
 
 const Token& Parser::Consume(TokenType expected) {
     std::string msg = "Expected " + ToString(expected) + 
-                      ", but got " + ToString(Peek().type) + 
-                      " at line " + std::to_string(Peek().line) + 
-                      ", column " + std::to_string(Peek().position);
+        ", but got " + ToString(Peek().type) + 
+        " at line " + std::to_string(Peek().line) + 
+        ", column " + std::to_string(Peek().position);
 
     if (Peek().type == expected) {
         return Advance();
@@ -55,8 +55,8 @@ JsonValue Parser::ParseValue() {
             return ParseObject();
         default:
             throw std::runtime_error("Unexpected token " + ToString(t.type) + 
-                                     " at line " + std::to_string(t.line) + 
-                                     ", column " + std::to_string(t.position));
+                " at line " + std::to_string(t.line) + 
+                    ", column " + std::to_string(t.position));
     }
 }
 
