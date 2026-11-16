@@ -11,7 +11,6 @@ else()
     add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-# 1. Основная утилита
 add_executable(json_parser
     src/main.cpp
     src/json.cpp

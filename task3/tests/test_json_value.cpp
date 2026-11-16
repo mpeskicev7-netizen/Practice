@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 #include <map>
-#include "json_value.hpp" // Твой файл с JsonValue
+#include "json_value.hpp" 
 
 void test_simple_types() {
     std::cout << "Running test_simple_types...\n";
@@ -29,22 +29,18 @@ void test_simple_types() {
 void test_complex_types() {
     std::cout << "Running test_complex_types...\n";
     
-    // 1. Тестируем Массив
     JsonArray arr;
     arr.push_back(JsonValue(10.0));
     arr.push_back(JsonValue(std::string("test")));
     
-    // ИСПРАВЛЕНИЕ: используем std::move, чтобы передать владение
     JsonValue j_arr(std::move(arr)); 
     assert(j_arr.is_array() == true);
     assert(j_arr.getJsonArray().size() == 2);
-    
-    // 2. Тестируем Объект
+   
     JsonObject obj;
-    obj["name"] = JsonValue(std::string("Vasya")); // Теперь это работает благодаря дефолтному конструктору
+    obj["name"] = JsonValue(std::string("Vasya")); 
     obj["age"] = JsonValue(25.0);
     
-    // ИСПРАВЛЕНИЕ: используем std::move
     JsonValue j_obj(std::move(obj)); 
     assert(j_obj.is_object() == true);
     assert(j_obj.getJsonObject().size() == 2);
@@ -54,8 +50,7 @@ void test_complex_types() {
 
 void test_equality_operator() {
     std::cout << "Running test_equality_operator...\n";
-    
-    // 1. Простые типы
+
     JsonValue a(10.0);
     JsonValue b(10.0);
     JsonValue c(20.0);
@@ -65,40 +60,37 @@ void test_equality_operator() {
     JsonValue s1(std::string("hello"));
     JsonValue s2(std::string("hello"));
     assert(s1 == s2);
-    assert(!(a == s1)); // Разные типы
-    
-    // 2. Массивы (Самый важный тест! Проверяем, что сравнивается содержимое, а не адреса)
+    assert(!(a == s1)); 
+
     JsonArray arr1;
     arr1.push_back(JsonValue(1.0));
     arr1.push_back(JsonValue(2.0));
-    JsonValue j_arr1(std::move(arr1)); // Забираем владение через std::move
+    JsonValue j_arr1(std::move(arr1)); 
     
     JsonArray arr2;
     arr2.push_back(JsonValue(1.0));
     arr2.push_back(JsonValue(2.0));
-    JsonValue j_arr2(std::move(arr2)); // Забираем владение через std::move
+    JsonValue j_arr2(std::move(arr2)); 
     
-    assert(j_arr1 == j_arr2); // Должно быть true, содержимое одинаковое!
-    
-    // Создаем третий, отличающийся массив для проверки неравенства
+    assert(j_arr1 == j_arr2); 
+
     JsonArray arr3;
     arr3.push_back(JsonValue(1.0));
     arr3.push_back(JsonValue(2.0));
-    arr3.push_back(JsonValue(3.0)); // Лишний элемент
+    arr3.push_back(JsonValue(3.0)); 
     JsonValue j_arr3(std::move(arr3));
     
-    assert(!(j_arr1 == j_arr3)); // Должно быть false, размеры и содержимое разные
-    
-    // 3. Объекты
+    assert(!(j_arr1 == j_arr3)); 
+
     JsonObject obj1;
     obj1["key"] = JsonValue(std::string("value"));
-    JsonValue j_obj1(std::move(obj1)); // Забираем владение через std::move
+    JsonValue j_obj1(std::move(obj1)); 
     
     JsonObject obj2;
     obj2["key"] = JsonValue(std::string("value"));
-    JsonValue j_obj2(std::move(obj2)); // Забираем владение через std::move
+    JsonValue j_obj2(std::move(obj2)); 
     
-    assert(j_obj1 == j_obj2); // Должно быть true
+    assert(j_obj1 == j_obj2); 
     
     std::cout << "test_equality_operator PASSED\n\n";
 }
@@ -108,10 +100,9 @@ void test_exceptions() {
     
     JsonValue j_str(std::string("hello"));
     
-    // Проверяем, что выбрасывается исключение при неправильном геттере
     bool caught = false;
     try {
-        j_str.getDouble(); // Ошибка: это строка, а не double
+        j_str.getDouble(); 
     } catch (const std::runtime_error& e) {
         caught = true;
     }

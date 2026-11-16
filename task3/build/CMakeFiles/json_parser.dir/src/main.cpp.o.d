@@ -159,19 +159,26 @@ CMakeFiles/json_parser.dir/src/main.cpp.o: /home/vibe/task3/src/main.cpp \
  /usr/include/c++/15/bits/locale_facets.tcc \
  /usr/include/c++/15/bits/basic_ios.tcc \
  /usr/include/c++/15/bits/ostream.tcc /usr/include/c++/15/istream \
- /usr/include/c++/15/bits/istream.tcc \
- /home/vibe/task3/src/../tests/test_json_value.cpp \
- /usr/include/c++/15/cassert /usr/include/assert.h \
- /usr/include/c++/15/vector /usr/include/c++/15/bits/stl_uninitialized.h \
+ /usr/include/c++/15/bits/istream.tcc /usr/include/c++/15/functional \
+ /usr/include/c++/15/bits/std_function.h \
+ /usr/include/c++/15/unordered_map \
+ /usr/include/c++/15/bits/unordered_map.h \
+ /usr/include/c++/15/bits/hashtable.h \
+ /usr/include/c++/15/bits/hashtable_policy.h \
+ /usr/include/c++/15/ext/aligned_buffer.h \
+ /usr/include/c++/15/bits/enable_special_members.h \
+ /usr/include/c++/15/bits/node_handle.h \
+ /usr/include/c++/15/bits/erase_if.h /usr/include/c++/15/vector \
+ /usr/include/c++/15/bits/stl_uninitialized.h \
  /usr/include/c++/15/bits/stl_vector.h \
  /usr/include/c++/15/bits/stl_bvector.h \
- /usr/include/c++/15/bits/vector.tcc /usr/include/c++/15/map \
- /usr/include/c++/15/bits/stl_tree.h \
- /usr/include/c++/15/ext/aligned_buffer.h \
- /usr/include/c++/15/bits/node_handle.h \
+ /usr/include/c++/15/bits/vector.tcc /usr/include/c++/15/array \
+ /usr/include/c++/15/compare \
+ /home/vibe/task3/src/../tests/test_json_value.cpp \
+ /usr/include/c++/15/cassert /usr/include/assert.h \
+ /usr/include/c++/15/map /usr/include/c++/15/bits/stl_tree.h \
  /usr/include/c++/15/bits/stl_map.h \
  /usr/include/c++/15/bits/stl_multimap.h \
- /usr/include/c++/15/bits/erase_if.h \
  /home/vibe/task3/include/json_value.hpp /usr/include/c++/15/memory \
  /usr/include/c++/15/bits/stl_tempbuf.h \
  /usr/include/c++/15/bits/stl_raw_storage_iter.h \
@@ -186,10 +193,11 @@ CMakeFiles/json_parser.dir/src/main.cpp.o: /home/vibe/task3/src/main.cpp \
  /usr/include/c++/15/backward/auto_ptr.h \
  /usr/include/c++/15/pstl/glue_memory_defs.h \
  /usr/include/c++/15/pstl/execution_defs.h /usr/include/c++/15/variant \
- /usr/include/c++/15/bits/enable_special_members.h \
  /usr/include/c++/15/bits/monostate.h \
  /usr/include/c++/15/bits/parse_numbers.h \
  /home/vibe/task3/src/../tests/test_lexer.cpp \
  /home/vibe/task3/include/lexer.hpp \
  /home/vibe/task3/src/../tests/test_parser.cpp \
- /home/vibe/task3/include/parser.hpp
+ /home/vibe/task3/include/parser.hpp \
+ /home/vibe/task3/src/../tests/test_path.cpp \
+ /home/vibe/task3/include/path.hpp
