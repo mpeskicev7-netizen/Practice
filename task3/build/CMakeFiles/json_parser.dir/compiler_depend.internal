@@ -214,6 +214,7 @@ CMakeFiles/json_parser.dir/src/json.cpp.o
 
 CMakeFiles/json_parser.dir/src/lexer.cpp.o
  /home/vibe/task3/src/lexer.cpp
+ /home/vibe/task3/include/error.hpp
  /home/vibe/task3/include/lexer.hpp
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
@@ -374,6 +375,7 @@ CMakeFiles/json_parser.dir/src/lexer.cpp.o
 
 CMakeFiles/json_parser.dir/src/main.cpp.o
  /home/vibe/task3/src/main.cpp
+ /home/vibe/task3/include/error.hpp
  /home/vibe/task3/include/json_value.hpp
  /home/vibe/task3/include/lexer.hpp
  /home/vibe/task3/include/parser.hpp
@@ -626,6 +628,7 @@ CMakeFiles/json_parser.dir/src/main.cpp.o
 
 CMakeFiles/json_parser.dir/src/parser.cpp.o
  /home/vibe/task3/src/parser.cpp
+ /home/vibe/task3/include/error.hpp
  /home/vibe/task3/include/json_value.hpp
  /home/vibe/task3/include/lexer.hpp
  /home/vibe/task3/include/parser.hpp
@@ -839,6 +842,7 @@ CMakeFiles/json_parser.dir/src/parser.cpp.o
 
 CMakeFiles/json_parser.dir/src/path.cpp.o
  /home/vibe/task3/src/path.cpp
+ /home/vibe/task3/include/error.hpp
  /home/vibe/task3/include/json_value.hpp
  /home/vibe/task3/include/path.hpp
  /usr/include/alloca.h

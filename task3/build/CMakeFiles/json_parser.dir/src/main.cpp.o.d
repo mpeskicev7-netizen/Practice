@@ -173,7 +173,7 @@ CMakeFiles/json_parser.dir/src/main.cpp.o: /home/vibe/task3/src/main.cpp \
  /usr/include/c++/15/bits/stl_vector.h \
  /usr/include/c++/15/bits/stl_bvector.h \
  /usr/include/c++/15/bits/vector.tcc /usr/include/c++/15/array \
- /usr/include/c++/15/compare \
+ /usr/include/c++/15/compare /home/vibe/task3/include/error.hpp \
  /home/vibe/task3/src/../tests/test_json_value.cpp \
  /usr/include/c++/15/cassert /usr/include/assert.h \
  /usr/include/c++/15/map /usr/include/c++/15/bits/stl_tree.h \

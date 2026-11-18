@@ -212,6 +212,7 @@ CMakeFiles/json_parser.dir/src/json.cpp.o: /home/vibe/task3/src/json.cpp \
   /usr/lib/gcc/x86_64-linux-gnu/15/include/stddef.h
 
 CMakeFiles/json_parser.dir/src/lexer.cpp.o: /home/vibe/task3/src/lexer.cpp \
+  /home/vibe/task3/include/error.hpp \
   /home/vibe/task3/include/lexer.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
@@ -371,6 +372,7 @@ CMakeFiles/json_parser.dir/src/lexer.cpp.o: /home/vibe/task3/src/lexer.cpp \
   /usr/lib/gcc/x86_64-linux-gnu/15/include/stddef.h
 
 CMakeFiles/json_parser.dir/src/main.cpp.o: /home/vibe/task3/src/main.cpp \
+  /home/vibe/task3/include/error.hpp \
   /home/vibe/task3/include/json_value.hpp \
   /home/vibe/task3/include/lexer.hpp \
   /home/vibe/task3/include/parser.hpp \
@@ -622,6 +624,7 @@ CMakeFiles/json_parser.dir/src/main.cpp.o: /home/vibe/task3/src/main.cpp \
   /usr/lib/gcc/x86_64-linux-gnu/15/include/stddef.h
 
 CMakeFiles/json_parser.dir/src/parser.cpp.o: /home/vibe/task3/src/parser.cpp \
+  /home/vibe/task3/include/error.hpp \
   /home/vibe/task3/include/json_value.hpp \
   /home/vibe/task3/include/lexer.hpp \
   /home/vibe/task3/include/parser.hpp \
@@ -834,6 +837,7 @@ CMakeFiles/json_parser.dir/src/parser.cpp.o: /home/vibe/task3/src/parser.cpp \
   /usr/lib/gcc/x86_64-linux-gnu/15/include/stddef.h
 
 CMakeFiles/json_parser.dir/src/path.cpp.o: /home/vibe/task3/src/path.cpp \
+  /home/vibe/task3/include/error.hpp \
   /home/vibe/task3/include/json_value.hpp \
   /home/vibe/task3/include/path.hpp \
   /usr/include/alloca.h \
@@ -1077,6 +1081,8 @@ CMakeFiles/json_parser.dir/src/parser.cpp.o:
 
 /usr/lib/x86_64-linux-gnu/libc.so:
 
+/usr/lib/x86_64-linux-gnu/crti.o:
+
 /usr/include/locale.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
@@ -1128,8 +1134,6 @@ CMakeFiles/json_parser.dir/src/parser.cpp.o:
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
 /usr/include/c++/15/ext/numeric_traits.h:
-
-/usr/lib/x86_64-linux-gnu/crti.o:
 
 /usr/include/c++/15/ext/atomicity.h:
 
@@ -1558,6 +1562,8 @@ CMakeFiles/json_parser.dir/src/lexer.cpp.o:
 /usr/include/x86_64-linux-gnu/sys/select.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/15/include/stdarg.h:
+
+/home/vibe/task3/include/error.hpp:
 
 /usr/include/c++/15/bits/parse_numbers.h:
 

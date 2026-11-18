@@ -1,4 +1,5 @@
 #include "path.hpp"
+#include "error.hpp"
 
 Path::Path(const JsonValue& json, const std::string& str) : json_(json), str_(str), pos_(0) {}
 
@@ -28,7 +29,7 @@ const JsonValue& Path::execute() {
                     value = &value->getJsonObject().at(key);
                 }
                 else {
-                    throw std::runtime_error("Not an object");
+                    throw PathError("Not an object");
                 }
             }
             else if (str_[pos_] == '[') {
@@ -43,7 +44,7 @@ const JsonValue& Path::execute() {
                     num = std::stoi(key);
                 }
                 else {
-                    throw std::runtime_error("Missing closing bracket");
+                    throw PathError("Missing closing bracket");
                 }
                 if (value->is_array()) {
                     if (num >= 0 && static_cast<size_t>(num) < value->getJsonArray().size()) {
@@ -51,17 +52,17 @@ const JsonValue& Path::execute() {
                     }
                 }
                 else {
-                    throw std::runtime_error("Non at array");
+                    throw PathError("Non at array");
                 }
             }
             else {
-                throw std::runtime_error("Unexpected character in path");
+                throw PathError("Unexpected character in path");
             }
         }
 
         return *value;
     }
     else {
-        throw std::runtime_error("Invalid symbol");
+        throw PathError("Invalid symbol");
     }
 }

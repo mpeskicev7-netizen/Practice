@@ -170,4 +170,5 @@ CMakeFiles/json_parser.dir/src/path.cpp.o: /home/vibe/task3/src/path.cpp \
  /usr/include/c++/15/pstl/execution_defs.h /usr/include/c++/15/variant \
  /usr/include/c++/15/bits/enable_special_members.h \
  /usr/include/c++/15/bits/monostate.h \
- /usr/include/c++/15/bits/parse_numbers.h /usr/include/c++/15/stdexcept
+ /usr/include/c++/15/bits/parse_numbers.h /usr/include/c++/15/stdexcept \
+ /home/vibe/task3/include/error.hpp

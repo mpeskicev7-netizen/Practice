@@ -127,4 +127,5 @@ CMakeFiles/json_parser.dir/src/lexer.cpp.o: \
  /usr/include/c++/15/ext/aligned_buffer.h /usr/include/c++/15/stdexcept \
  /usr/include/c++/15/exception /usr/include/c++/15/bits/exception_ptr.h \
  /usr/include/c++/15/bits/cxxabi_init_exception.h \
- /usr/include/c++/15/typeinfo /usr/include/c++/15/bits/nested_exception.h
+ /usr/include/c++/15/typeinfo /usr/include/c++/15/bits/nested_exception.h \
+ /home/vibe/task3/include/error.hpp

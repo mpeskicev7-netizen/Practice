@@ -1,18 +1,19 @@
 #include "parser.hpp"
+#include "error.hpp"
 
 Parser::Parser(std::vector<Token> tokens) 
     : tok_(std::move(tokens)), pos_(0) {}
 
 const Token& Parser::Peek() const {
     if (pos_ >= tok_.size()) {
-        throw std::runtime_error("Error, the position is larger than the size");
+        throw ParserError("Error, the position is larger than the size");
     }
     return tok_[pos_];
 }
 
 const Token& Parser::Advance() {
     if (pos_ >= tok_.size()) {
-        throw std::runtime_error("Error, the position is larger than the size");
+        throw ParserError("Error, the position is larger than the size");
     }
     return tok_[pos_++];
 }
@@ -26,7 +27,7 @@ const Token& Parser::Consume(TokenType expected) {
     if (Peek().type == expected) {
         return Advance();
     } else {
-        throw std::runtime_error(msg);
+        throw ParserError(msg);
     }
 }
 
@@ -54,7 +55,7 @@ JsonValue Parser::ParseValue() {
         case TokenType::LBrace:
             return ParseObject();
         default:
-            throw std::runtime_error("Unexpected token " + ToString(t.type) + 
+            throw ParserError("Unexpected token " + ToString(t.type) + 
                 " at line " + std::to_string(t.line) + 
                     ", column " + std::to_string(t.position));
     }
@@ -80,7 +81,7 @@ JsonValue Parser::ParseArray() {
                 Consume(TokenType::Comma);
                 continue;
             } else {
-                throw std::runtime_error("Unknown type " + ToString(Peek().type) + 
+                throw ParserError("Unknown type " + ToString(Peek().type) + 
                                          " at line " + std::to_string(Peek().line) + 
                                          ", column " + std::to_string(Peek().position));
             }
@@ -114,7 +115,7 @@ JsonValue Parser::ParseObject() {
                 Consume(TokenType::RBrace);
                 break;
             } else {
-                throw std::runtime_error("Unknown type " + ToString(Peek().type) + 
+                throw ParserError("Unknown type " + ToString(Peek().type) + 
                     " at line " + std::to_string(Peek().line) + 
                         ", column " + std::to_string(Peek().position));
             }

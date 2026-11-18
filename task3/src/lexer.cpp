@@ -1,4 +1,5 @@
 #include "lexer.hpp"
+#include "error.hpp"
 
 std::string ToString(TokenType t) {
     switch(t) {
@@ -15,7 +16,7 @@ std::string ToString(TokenType t) {
         case TokenType::Null:     return "Null";
         case TokenType::End:      return "End";
         default:
-            throw std::runtime_error("Unknown TokenType");
+            throw LexerError("Unknown TokenType");
     }
 }
 
@@ -92,14 +93,14 @@ Token Lexer::ReadNumbers() {
 
     char first = input_[pos_];
     if (!std::isdigit(first)) {
-        throw std::runtime_error("Expected digit at position " + std::to_string(pos_));
+        throw LexerError("Expected digit at position " + std::to_string(pos_));
     }
 
     pos_++; column_++;
 
     if (first == '0' && pos_ < input_.size() && std::isdigit(input_[pos_])) {
         std::string bad = input_.substr(start, 2); 
-        throw std::runtime_error("Invalid number: leading zero not allowed in JSON (found '" + bad + "')");
+        throw LexerError("Invalid number: leading zero not allowed in JSON (found '" + bad + "')");
     }
 
     while (pos_ < input_.size() && std::isdigit(input_[pos_])) {
@@ -132,6 +133,8 @@ Token Lexer::ReadNumbers() {
 Token Lexer::ReadString() {
     pos_++; column_++;
     std::string result;
+    std::string unicode;
+    int decoder;
 
     while(pos_ < input_.size() && input_[pos_] != '"') {
         char c = input_[pos_];
@@ -139,7 +142,7 @@ Token Lexer::ReadString() {
         if (c == '\\') {
             pos_++; column_++;
             if (pos_ >= input_.size()) {
-                throw std::runtime_error("Unexpected end of string after escape character");
+                throw LexerError("Unexpected end of string after escape character");
             }
 
             char escaped = input_[pos_];
@@ -152,17 +155,29 @@ Token Lexer::ReadString() {
             else if (escaped == 'f') result += '\f';
             else if (escaped == '/') result += '/';
             else if (escaped == 'u') {
-                result += "\\u";
                 for (int i = 0; i < 4; i++) {
-                    if (pos_ + 1 + i < input_.size() && std::isxdigit(input_[pos_ + 1 + i])) {
-                        result += input_[pos_ + 1 + i];
+                    if (pos_ + 1 + i < input_.size() && std::isxdigit(static_cast<unsigned char>(input_[pos_ + 1 + i]))) {
+                        unicode += input_[pos_ + 1 + i];
                     } else {
-                        throw std::runtime_error("Invalid escape sequence");
+                        throw LexerError("Invalid escape sequence");
                     }
+                }
+                decoder = std::stoi(unicode, nullptr, 16);
+                if (decoder < 0x80) {
+                    result += static_cast<char>(decoder);
+                }
+                else if (decoder < 0x800) {
+                    result += static_cast<char>(0xC0 | (decoder >> 6));
+                    result += static_cast<char>(0x80 | (decoder & 0x3F));
+                }
+                else {
+                    result += static_cast<char>(0xE0 | (decoder >> 12));
+                    result += static_cast<char>(0x80 | ((decoder >> 6) & 0x3F));
+                    result += static_cast<char>(0x80 | (decoder & 0x3F));
                 }
                 pos_ += 4; column_ += 4;
             } else {
-                throw std::runtime_error("Invalid escape sequence: \\" + std::string(1, escaped));
+                throw LexerError("Invalid escape sequence: \\" + std::string(1, escaped));
             }
             pos_++; column_++;
         } else {
@@ -172,7 +187,7 @@ Token Lexer::ReadString() {
     }
 
     if (pos_ >= input_.size()) {
-        throw std::runtime_error("Unexpected end of string");
+        throw LexerError("Unexpected end of string");
     }
 
     pos_++; column_++;
@@ -189,7 +204,7 @@ Token Lexer::ReadKeywords() {
     std::string word = input_.substr(start, pos_ - start);
 
     if (pos_ < input_.size() && std::isalnum(input_[pos_])) {
-        throw std::runtime_error("Invalid keyword: " + word);
+        throw LexerError("Invalid keyword: " + word);
     }
 
     if (word == "true") {
@@ -202,5 +217,5 @@ Token Lexer::ReadKeywords() {
         return {TokenType::Null, word, line_, column_};
     }
 
-    throw std::runtime_error("Unknown keyword: " + word);
+    throw LexerError("Unknown keyword: " + word);
 }

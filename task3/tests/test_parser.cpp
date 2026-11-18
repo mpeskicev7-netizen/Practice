@@ -4,7 +4,6 @@
 #include "lexer.hpp"
 #include "parser.hpp"
 
-// Вспомогательная функция, чтобы собрать все токены из лексера в вектор
 std::vector<Token> getAllTokens(Lexer& lexer) {
     std::vector<Token> tokens;
     while (true) {
@@ -44,7 +43,6 @@ void test_parse_string() {
 void test_parse_boolean() {
     std::cout << "Test: parse boolean... ";
     
-    // true
     std::string json1 = "true";
     Lexer lexer1(json1);
     Parser parser1(getAllTokens(lexer1));
@@ -52,7 +50,6 @@ void test_parse_boolean() {
     assert(result1.is_bool());
     assert(result1.getBool() == true);
     
-    // false
     std::string json2 = "false";
     Lexer lexer2(json2);
     Parser parser2(getAllTokens(lexer2));
@@ -158,8 +155,7 @@ void test_parse_error_trailing_comma() {
         parser.ParseValue();
     } catch (const std::runtime_error& e) {
         exceptionThrown = true;
-        // Можно раскомментировать, чтобы увидеть текст ошибки:
-        // std::cout << "\n  Caught expected error: " << e.what() << "\n";
+        std::cout << "\n  Caught expected error: " << e.what() << "\n";
     }
     
     assert(exceptionThrown);

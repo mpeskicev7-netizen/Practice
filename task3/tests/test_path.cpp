@@ -8,7 +8,6 @@
 #include "json_value.hpp"
 #include "path.hpp"
 
-// Вспомогательная функция для проверки, что код кидает исключение
 bool throws(std::function<void()> fn) {
     try {
         fn();
@@ -29,7 +28,7 @@ void test_root_only() {
     const JsonValue& result = path.execute();
 
     assert(result.is_object());
-    assert(&result == &root); // должен вернуть сам корень
+    assert(&result == &root); 
 
     std::cout << "test_root_only PASSED\n\n";
 }

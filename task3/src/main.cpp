@@ -1,5 +1,6 @@
 #include <iostream>
 #include <functional>
+#include "error.hpp"
 
 #include "../tests/test_json_value.cpp"
 #include "../tests/test_lexer.cpp"
